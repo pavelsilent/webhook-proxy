@@ -1,0 +1,9 @@
+telegram:
+  api:
+    url: 'https://api.telegram.org/'
+  bot:
+    id: '1175490708:AAHTrfqu5fyn6o6tDUoiPu2MwFg4raHY2EY'
+    #'1104514641:AAHgsNR4J4A9P0CZIo_dNn-nZWAevDMhWo4'
+  channel:
+    id: '468654555'
+    #'-435910891'

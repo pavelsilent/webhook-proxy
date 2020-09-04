@@ -1,0 +1,51 @@
+buildscript {
+  repositories {
+    maven {
+      url "${nexusUrl}/repository/maven-central"
+    }
+    maven {
+      url "${nexusUrl}/repository/maven-releases"
+    }
+  }
+}
+
+plugins {
+  id 'org.springframework.boot' version '2.3.1.RELEASE'
+  id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+  id 'java'
+}
+
+group = 'pro.sisit.utils'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+  compileOnly {
+    extendsFrom annotationProcessor
+  }
+}
+
+repositories {
+  maven {
+    url "${nexusUrl}/repository/maven-central"
+  }
+  maven {
+    url "${nexusUrl}/repository/maven-releases"
+  }
+}
+dependencies {
+  implementation 'org.springframework.boot:spring-boot-starter'
+  implementation 'org.springframework.boot:spring-boot-starter-web'
+  implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.3.4'
+  implementation group: 'org.apache.commons', name: 'commons-lang3', version: 3.10
+
+  compileOnly 'org.projectlombok:lombok'
+  annotationProcessor 'org.projectlombok:lombok'
+  testImplementation('org.springframework.boot:spring-boot-starter-test') {
+    exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+  }
+}
+
+test {
+  useJUnitPlatform()
+}

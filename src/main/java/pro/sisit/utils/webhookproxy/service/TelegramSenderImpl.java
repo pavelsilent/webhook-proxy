@@ -21,10 +21,13 @@ public class TelegramSenderImpl implements TelegramSender {
 
     @Override
     public void send(TelegramGroup telegramGroup, String text) {
-        String url =
-            String.format("%s/bot%s/sendMessage?chat_id=%s&text=%s",
-                environment.getProperty("telegram.api.url"), telegramGroup.getBotId(),
-                telegramGroup.getChannelId(), text);
+        String url = String.format("%s/bot%s/sendMessage?chat_id=%s&parse_mode=%s&text=%s",
+                environment.getProperty("telegram.api.url"),
+                telegramGroup.getBotId(),
+                telegramGroup.getChannelId(),
+//                "MarkdownV2",
+                "html",
+                text);
 
         HttpHeaders headers = new HttpHeaders();
         headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
@@ -32,10 +35,10 @@ public class TelegramSenderImpl implements TelegramSender {
         RestTemplate restTemplate = new RestTemplate();
         HttpEntity<?> entity = new HttpEntity<>(headers);
         HttpEntity<String> response = restTemplate.exchange(
-            url,
-            HttpMethod.GET,
-            entity,
-            String.class);
+                url,
+                HttpMethod.GET,
+                entity,
+                String.class);
 
         System.out.println(response);
     }

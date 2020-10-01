@@ -19,12 +19,3 @@ public class CommitDTO implements WebHookCommentTargetDTO {
     public AuthorDTO author;
 }
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-class AuthorDTO {
-
-    @JsonProperty("name")
-    public String name;
-    @JsonProperty("email")
-    public String email;
-}
-

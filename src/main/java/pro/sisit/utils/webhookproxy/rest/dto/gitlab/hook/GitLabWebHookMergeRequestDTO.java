@@ -12,7 +12,7 @@ import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.UserDTO;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 
-public class WebHookMergeRequestDTO extends WebHookDTO {
+public class GitLabWebHookMergeRequestDTO extends GitLabWebHookDTO {
 
     @JsonProperty("user")
     public UserDTO user;

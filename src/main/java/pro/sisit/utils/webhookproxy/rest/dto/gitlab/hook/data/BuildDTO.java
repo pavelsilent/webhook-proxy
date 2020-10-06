@@ -29,7 +29,7 @@ public class BuildDTO {
     @JsonProperty("user")
     public UserDTO user;
     @JsonProperty("runner")
-    public Object runner;
+    public RunnerDTO runner;
     @JsonProperty("artifacts_file")
     public ArtifactFileDTO artifactsFile;
 }

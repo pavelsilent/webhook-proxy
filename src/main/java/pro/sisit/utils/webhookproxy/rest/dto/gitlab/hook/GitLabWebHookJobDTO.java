@@ -7,7 +7,7 @@ import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.RepositoryFullDTO;
 import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.UserDTO;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class WebHookJobDTO extends WebHookDTO {
+public class GitLabWebHookJobDTO extends GitLabWebHookDTO {
 
     @JsonProperty("ref")
     public String ref;

@@ -14,7 +14,7 @@ import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.SnippetDTO;
 import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.UserDTO;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class WebHookCommentDTO extends WebHookDTO {
+public class GitLabWebHookCommentDTO extends GitLabWebHookDTO {
 
     @JsonProperty("user")
     public UserDTO user;

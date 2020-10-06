@@ -27,7 +27,10 @@ dependencies {
   implementation 'org.springframework.boot:spring-boot-starter'
   implementation 'org.springframework.boot:spring-boot-starter-web'
   implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.3.4'
-  implementation group: 'org.apache.commons', name: 'commons-lang3', version: 3.10
+  implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.10'
+  implementation group: 'org.apache.commons', name: 'commons-text', version: '1.9'
+  implementation group: 'org.telegram', name: 'telegramapi', version: '66.2'
+  implementation 'com.github.pengrad:java-telegram-bot-api:4.9.0'
 
   compileOnly 'org.projectlombok:lombok'
   annotationProcessor 'org.projectlombok:lombok'

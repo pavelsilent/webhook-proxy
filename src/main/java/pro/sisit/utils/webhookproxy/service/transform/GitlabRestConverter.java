@@ -15,9 +15,17 @@ public interface GitlabRestConverter {
 
     MergeRequestModel toModel(MergeRequestDTO dto);
 
+    MergeRequestShortModel toModel(MergeRequestShortDTO dto);
+
     CommentModel toModel(CommentDataDTO dto);
 
     CommitModel toModel(CommitDTO dto);
 
     CommitModel toModel(CommitFullDTO dto);
+
+    PipelineModel toModel(PipelineDataDTO dto);
+
+    PipelineBuildModel toModel(BuildDTO dto);
+
+    RunnerModel toModel(RunnerDTO dto);
 }

@@ -11,7 +11,7 @@ import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.RepositoryDTO;
 import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.UserDTO;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class WebHookIssueDTO extends WebHookDTO {
+public class GitLabWebHookIssueDTO extends GitLabWebHookDTO {
 
     @JsonProperty("event_type")
     public String eventType;

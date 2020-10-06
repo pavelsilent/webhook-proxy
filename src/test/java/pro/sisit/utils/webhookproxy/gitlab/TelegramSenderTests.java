@@ -1,24 +1,30 @@
 package pro.sisit.utils.webhookproxy.gitlab;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.pengrad.telegrambot.model.request.ParseMode;
+import com.pengrad.telegrambot.response.SendResponse;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.ArgumentsProvider;
+import org.junit.jupiter.params.provider.ArgumentsSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.env.Environment;
 import pro.sisit.utils.webhookproxy.domain.TelegramGroup;
-import pro.sisit.utils.webhookproxy.domain.model.gitlab.event.CommitCommentEvent;
-import pro.sisit.utils.webhookproxy.domain.model.gitlab.event.MergeRequestCommentEvent;
-import pro.sisit.utils.webhookproxy.domain.model.gitlab.event.MergeRequestEvent;
-import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.WebHookDTO;
-import pro.sisit.utils.webhookproxy.service.TelegramMessageBuilder;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.GitLabWebHookDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.jenkins.JenkinsBuildEventDTO;
 import pro.sisit.utils.webhookproxy.service.TelegramSender;
-import pro.sisit.utils.webhookproxy.service.transform.event.GitlabEventRestConverterFactory;
+import pro.sisit.utils.webhookproxy.service.builder.TelegramMessageBuilderFactory;
 import pro.sisit.utils.webhookproxy.service.transform.GitlabRestConverter;
+import pro.sisit.utils.webhookproxy.service.transform.WebHookRestConverterFactory;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
+import java.util.stream.Stream;
 
 @SpringBootTest
 class TelegramSenderTests {
@@ -27,10 +33,10 @@ class TelegramSenderTests {
     private GitlabRestConverter restConverter;
 
     @Autowired
-    private GitlabEventRestConverterFactory restConverterFactory;
+    private WebHookRestConverterFactory restConverterFactory;
 
     @Autowired
-    private TelegramMessageBuilder messageBuilder;
+    private TelegramMessageBuilderFactory messageBuilder;
 
     @Autowired
     private TelegramSender sender;
@@ -48,42 +54,37 @@ class TelegramSenderTests {
                 .build();
     }
 
-    @Test
-    void testMergeRequestSending() throws IOException {
+    @ParameterizedTest
+    @ArgumentsSource(TelegramSenderTests.TelegramSendMessageTestArguments.class)
+    void testSendMessage(String jsonFileName, Class dtoClass)
+            throws IOException {
         ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(Objects.requireNonNull(classLoader.getResource("merge-request-event.json")).getFile());
-        System.out.println(file.getAbsolutePath());
+        File file = new File(Objects.requireNonNull(classLoader.getResource(jsonFileName)).getFile());
 
         ObjectMapper mapper = new ObjectMapper();
-        WebHookDTO webHookDTO = mapper.readValue(file, WebHookDTO.class);
-        MergeRequestEvent event = restConverterFactory.toModel(webHookDTO);
+        Object event = restConverterFactory.toModel(mapper.readValue(file, dtoClass));
+        String message = messageBuilder.toMessage(event);
+        SendResponse response = sender.send(channel, message, messageBuilder.getParseMode(event));
 
-        sender.send(channel, messageBuilder.toMessage(event));
+        System.out.println(response);
+
+        Assertions.assertNotNull(response);
+        Assertions.assertNotNull(response.message());
+        Assertions.assertNotNull(response.message().messageId());
     }
 
-    @Test
-    void testMergeRequestCommentSending() throws IOException {
-        ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(Objects.requireNonNull(classLoader.getResource("merge-request-comment-event.json")).getFile());
-        System.out.println(file.getAbsolutePath());
+    static class TelegramSendMessageTestArguments implements ArgumentsProvider {
 
-        ObjectMapper mapper = new ObjectMapper();
-        WebHookDTO webHookDTO = mapper.readValue(file, WebHookDTO.class);
-        MergeRequestCommentEvent event = restConverterFactory.toModel(webHookDTO);
-
-        sender.send(channel, messageBuilder.toMessage(event));
+        @Override
+        public Stream<? extends Arguments> provideArguments(ExtensionContext context) {
+            return Stream.of(
+                    new Object[]{"gitlab/merge-request-event.json", GitLabWebHookDTO.class},
+                    new Object[]{"gitlab/merge-request-comment-event.json", GitLabWebHookDTO.class},
+                    new Object[]{"gitlab/commit-comment-event.json", GitLabWebHookDTO.class},
+                    new Object[]{"gitlab/pipeline-event.json", GitLabWebHookDTO.class},
+                    new Object[]{"jenkins/build-event.json", JenkinsBuildEventDTO.class})
+                    .map(Arguments::of);
+        }
     }
 
-    @Test
-    void testCommitCommentSending() throws IOException {
-        ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(Objects.requireNonNull(classLoader.getResource("commit-comment-event.json")).getFile());
-        System.out.println(file.getAbsolutePath());
-
-        ObjectMapper mapper = new ObjectMapper();
-        WebHookDTO webHookDTO = mapper.readValue(file, WebHookDTO.class);
-        CommitCommentEvent event = restConverterFactory.toModel(webHookDTO);
-
-        sender.send(channel, messageBuilder.toMessage(event));
-    }
 }

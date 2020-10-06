@@ -8,7 +8,7 @@ import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.WikiDTO;
 import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.WikiDataDTO;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class WebHookWikiDTO extends WebHookDTO {
+public class GitLabWebHookWikiDTO extends GitLabWebHookDTO {
 
     @JsonProperty("user")
     public UserDTO user;

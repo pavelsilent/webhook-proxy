@@ -12,15 +12,15 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.ArgumentsProvider;
 import org.junit.jupiter.params.provider.ArgumentsSource;
 import pro.sisit.utils.webhookproxy.rest.dto.gitlab.GitLabObjectKind;
-import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.WebHookCommentDTO;
-import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.WebHookDTO;
-import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.WebHookIssueDTO;
-import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.WebHookJobDTO;
-import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.WebHookMergeRequestDTO;
-import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.WebHookPipelineDTO;
-import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.WebHookPushDTO;
-import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.WebHookTagPushDTO;
-import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.WebHookWikiDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.GitLabWebHookCommentDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.GitLabWebHookDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.GitLabWebHookIssueDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.GitLabWebHookJobDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.GitLabWebHookMergeRequestDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.GitLabWebHookPipelineDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.GitLabWebHookPushDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.GitLabWebHookTagPushDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.GitLabWebHookWikiDTO;
 import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.CommitDTO;
 import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.IssueDTO;
 import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.MergeRequestDTO;
@@ -34,11 +34,9 @@ class GitLabObjectMapperTests {
         throws IOException {
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(Objects.requireNonNull(classLoader.getResource(jsonFileName)).getFile());
-        System.out.println(file.getAbsolutePath());
 
         ObjectMapper mapper = new ObjectMapper();
-        WebHookDTO webHookDTO = mapper.readValue(file, WebHookDTO.class);
-        System.out.println(webHookDTO);
+        GitLabWebHookDTO webHookDTO = mapper.readValue(file, GitLabWebHookDTO.class);
         Assertions.assertEquals(expectedClass, webHookDTO.getClass());
         Assertions.assertEquals(expectedObjectKind.name(), webHookDTO.objectKind);
     }
@@ -49,13 +47,11 @@ class GitLabObjectMapperTests {
         throws IOException {
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(Objects.requireNonNull(classLoader.getResource(jsonFileName)).getFile());
-        System.out.println(file.getAbsolutePath());
 
         ObjectMapper mapper = new ObjectMapper();
-        WebHookDTO webHookDTO = mapper.readValue(file, WebHookDTO.class);
-        System.out.println(webHookDTO);
+        GitLabWebHookDTO webHookDTO = mapper.readValue(file, GitLabWebHookDTO.class);
 
-        WebHookCommentDTO webHookCommentDTO = (WebHookCommentDTO) webHookDTO;
+        GitLabWebHookCommentDTO webHookCommentDTO = (GitLabWebHookCommentDTO) webHookDTO;
 
         Assertions.assertEquals(expectedClass, webHookCommentDTO.getClass());
         Assertions.assertEquals(GitLabObjectKind.note.name(), webHookCommentDTO.objectKind);
@@ -67,10 +63,10 @@ class GitLabObjectMapperTests {
         @Override
         public Stream<? extends Arguments> provideArguments(ExtensionContext context) {
             return Stream.of(
-                new Object[]{"commit-comment-event.json", WebHookCommentDTO.class, CommitDTO.class},
-                new Object[]{"merge-request-comment-event.json", WebHookCommentDTO.class, MergeRequestDTO.class},
-                new Object[]{"issue-comment-event.json", WebHookCommentDTO.class, IssueDTO.class},
-                new Object[]{"code-snippet-comment-event.json", WebHookCommentDTO.class, SnippetDTO.class})
+                new Object[]{"gitlab/commit-comment-event.json", GitLabWebHookCommentDTO.class, CommitDTO.class},
+                new Object[]{"gitlab/merge-request-comment-event.json", GitLabWebHookCommentDTO.class, MergeRequestDTO.class},
+                new Object[]{"gitlab/issue-comment-event.json", GitLabWebHookCommentDTO.class, IssueDTO.class},
+                new Object[]{"gitlab/code-snippet-comment-event.json", GitLabWebHookCommentDTO.class, SnippetDTO.class})
                          .map(Arguments::of);
         }
     }
@@ -80,17 +76,17 @@ class GitLabObjectMapperTests {
         @Override
         public Stream<? extends Arguments> provideArguments(ExtensionContext context) {
             return Stream.of(
-                new Object[]{"push-event.json", WebHookPushDTO.class, GitLabObjectKind.push},
-                new Object[]{"tag-push-event.json", WebHookTagPushDTO.class, GitLabObjectKind.tag_push},
-                new Object[]{"issue-event.json", WebHookIssueDTO.class, GitLabObjectKind.issue},
-                new Object[]{"commit-comment-event.json", WebHookCommentDTO.class, GitLabObjectKind.note},
-                new Object[]{"merge-request-comment-event.json", WebHookCommentDTO.class, GitLabObjectKind.note},
-                new Object[]{"issue-comment-event.json", WebHookCommentDTO.class, GitLabObjectKind.note},
-                new Object[]{"code-snippet-comment-event.json", WebHookCommentDTO.class, GitLabObjectKind.note},
-                new Object[]{"merge-request-event.json", WebHookMergeRequestDTO.class, GitLabObjectKind.merge_request},
-                new Object[]{"wiki-event.json", WebHookWikiDTO.class, GitLabObjectKind.wiki_page},
-                new Object[]{"pipeline-event.json", WebHookPipelineDTO.class, GitLabObjectKind.pipeline},
-                new Object[]{"job-event.json", WebHookJobDTO.class, GitLabObjectKind.build})
+                new Object[]{"gitlab/push-event.json", GitLabWebHookPushDTO.class, GitLabObjectKind.push},
+                new Object[]{"gitlab/tag-push-event.json", GitLabWebHookTagPushDTO.class, GitLabObjectKind.tag_push},
+                new Object[]{"gitlab/issue-event.json", GitLabWebHookIssueDTO.class, GitLabObjectKind.issue},
+                new Object[]{"gitlab/commit-comment-event.json", GitLabWebHookCommentDTO.class, GitLabObjectKind.note},
+                new Object[]{"gitlab/merge-request-comment-event.json", GitLabWebHookCommentDTO.class, GitLabObjectKind.note},
+                new Object[]{"gitlab/issue-comment-event.json", GitLabWebHookCommentDTO.class, GitLabObjectKind.note},
+                new Object[]{"gitlab/code-snippet-comment-event.json", GitLabWebHookCommentDTO.class, GitLabObjectKind.note},
+                new Object[]{"gitlab/merge-request-event.json", GitLabWebHookMergeRequestDTO.class, GitLabObjectKind.merge_request},
+                new Object[]{"gitlab/wiki-event.json", GitLabWebHookWikiDTO.class, GitLabObjectKind.wiki_page},
+                new Object[]{"gitlab/pipeline-event.json", GitLabWebHookPipelineDTO.class, GitLabObjectKind.pipeline},
+                new Object[]{"gitlab/job-event.json", GitLabWebHookJobDTO.class, GitLabObjectKind.build})
                          .map(Arguments::of);
         }
     }

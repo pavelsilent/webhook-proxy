@@ -3,12 +3,11 @@ package pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
-import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.CommitFullDTO;
 import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.ProjectDTO;
 import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.RepositoryFullDTO;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class WebHookPushDTO extends WebHookDTO {
+public class GitLabWebHookTagPushDTO extends GitLabWebHookDTO {
 
     @JsonProperty("before")
     public String before;
@@ -22,10 +21,6 @@ public class WebHookPushDTO extends WebHookDTO {
     public Integer userId;
     @JsonProperty("user_name")
     public String userName;
-    @JsonProperty("user_username")
-    public String userUsername;
-    @JsonProperty("user_email")
-    public String userEmail;
     @JsonProperty("user_avatar")
     public String userAvatar;
     @JsonProperty("project_id")
@@ -35,7 +30,7 @@ public class WebHookPushDTO extends WebHookDTO {
     @JsonProperty("repository")
     public RepositoryFullDTO repository;
     @JsonProperty("commits")
-    public List<CommitFullDTO> commits;
+    public List<Object> commits;
     @JsonProperty("total_commits_count")
     public Integer totalCommitsCount;
 }

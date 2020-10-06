@@ -1,4 +1,4 @@
-package pro.sisit.utils.webhookproxy.service.transform.event;
+package pro.sisit.utils.webhookproxy.service.transform;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -7,9 +7,9 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class GitlabEventRestConverterFactory {
+public class WebHookRestConverterFactory {
 
-    private final List<GitlabEventRestConverter> converters;
+    private final List<WebHookRestConverter> converters;
 
     public <T, K> T toModel(K dto) {
         return converters.stream()

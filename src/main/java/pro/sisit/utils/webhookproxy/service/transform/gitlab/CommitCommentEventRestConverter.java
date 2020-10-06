@@ -1,21 +1,22 @@
-package pro.sisit.utils.webhookproxy.service.transform.event;
+package pro.sisit.utils.webhookproxy.service.transform.gitlab;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.event.CommitCommentEvent;
-import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.WebHookCommentDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.GitLabWebHookCommentDTO;
 import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.CommitDTO;
 import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.CommitFullDTO;
 import pro.sisit.utils.webhookproxy.service.transform.GitlabRestConverter;
+import pro.sisit.utils.webhookproxy.service.transform.WebHookRestConverter;
 
 @Service
 @RequiredArgsConstructor
-public class CommitCommentEventRestConverter implements GitlabEventRestConverter<CommitCommentEvent, WebHookCommentDTO> {
+public class CommitCommentEventRestConverter implements WebHookRestConverter<CommitCommentEvent, GitLabWebHookCommentDTO> {
 
     private final GitlabRestConverter restConverter;
 
     @Override
-    public CommitCommentEvent toModel(WebHookCommentDTO dto) {
+    public CommitCommentEvent toModel(GitLabWebHookCommentDTO dto) {
         CommitCommentEvent model = new CommitCommentEvent();
         model.setUser(restConverter.toModel(dto.user));
         model.setRepository(restConverter.toModel(dto.repository));
@@ -32,12 +33,12 @@ public class CommitCommentEventRestConverter implements GitlabEventRestConverter
 
     @Override
     public boolean supports(Object dto) {
-        if (!(dto instanceof WebHookCommentDTO)) {
+        if (!(dto instanceof GitLabWebHookCommentDTO)) {
             return false;
         }
 
-        WebHookCommentDTO comment = (WebHookCommentDTO) dto;
-        return WebHookCommentDTO.class.equals(dto.getClass()) &&
+        GitLabWebHookCommentDTO comment = (GitLabWebHookCommentDTO) dto;
+        return GitLabWebHookCommentDTO.class.equals(dto.getClass()) &&
                 (CommitDTO.class.equals(comment.getTarget().getClass()) ||
                         CommitFullDTO.class.equals(comment.getTarget().getClass()));
 

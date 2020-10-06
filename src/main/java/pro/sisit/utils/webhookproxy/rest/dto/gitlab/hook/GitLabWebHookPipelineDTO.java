@@ -11,7 +11,7 @@ import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.ProjectDTO;
 import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.UserDTO;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class WebHookPipelineDTO extends WebHookDTO {
+public class GitLabWebHookPipelineDTO extends GitLabWebHookDTO {
 
     @JsonProperty("object_attributes")
     public PipelineDataDTO pipelineData;

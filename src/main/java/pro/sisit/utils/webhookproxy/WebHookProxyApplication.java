@@ -1,5 +1,6 @@
 package pro.sisit.utils.webhookproxy;
 
+import com.pengrad.telegrambot.model.request.ParseMode;
 import lombok.RequiredArgsConstructor;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -38,6 +39,6 @@ public class WebHookProxyApplication {
         telegramSender.send(TelegramGroup.builder()
                 .botId(environment.getProperty("telegram.bot.id"))
                 .channelId(environment.getProperty("telegram.channel.id"))
-                .build(), "Проверка отправки multi-language message - сообщения :-)");
+                .build(), "Проверка отправки multi-language message - сообщения :-)", ParseMode.HTML);
     }
 }

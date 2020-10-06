@@ -1,5 +1,7 @@
 package pro.sisit.utils.webhookproxy.service;
 
+import com.pengrad.telegrambot.model.request.ParseMode;
+
 public interface TelegramMessageFormatter {
 
     String bold(String text);
@@ -15,4 +17,6 @@ public interface TelegramMessageFormatter {
     }
 
     String link(String url, String text);
+
+    ParseMode getParseMode();
 }

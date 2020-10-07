@@ -1,10 +1,12 @@
 package pro.sisit.utils.webhookproxy.domain.model.gitlab.event;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.*;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class MergeRequestCommentEvent {
+public class MergeRequestCommentEvent extends GitlabWebhookEvent {
 
     private UserModel user;
 

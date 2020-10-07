@@ -1,7 +1,6 @@
 package pro.sisit.utils.webhookproxy.gitlab;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.pengrad.telegrambot.model.request.ParseMode;
 import com.pengrad.telegrambot.response.SendResponse;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,11 +12,14 @@ import org.junit.jupiter.params.provider.ArgumentsSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.env.Environment;
-import pro.sisit.utils.webhookproxy.domain.TelegramGroup;
+import pro.sisit.utils.webhookproxy.domain.WebhookEvent;
+import pro.sisit.utils.webhookproxy.domain.entity.TelegramBot;
+import pro.sisit.utils.webhookproxy.domain.entity.target.TelegramChannel;
+import pro.sisit.utils.webhookproxy.domain.model.telegram.Message;
 import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.GitLabWebHookDTO;
 import pro.sisit.utils.webhookproxy.rest.dto.jenkins.JenkinsBuildEventDTO;
-import pro.sisit.utils.webhookproxy.service.TelegramSender;
 import pro.sisit.utils.webhookproxy.service.builder.TelegramMessageBuilderFactory;
+import pro.sisit.utils.webhookproxy.service.sender.TelegramSender;
 import pro.sisit.utils.webhookproxy.service.transform.GitlabRestConverter;
 import pro.sisit.utils.webhookproxy.service.transform.WebHookRestConverterFactory;
 
@@ -44,14 +46,16 @@ class TelegramSenderTests {
     @Autowired
     private Environment environment;
 
-    private TelegramGroup channel;
+    private TelegramChannel channel;
 
     @BeforeEach
     private void before() {
-        channel = TelegramGroup.builder()
-                .botId(environment.getProperty("telegram.bot.id"))
-                .channelId(environment.getProperty("telegram.channel.id"))
-                .build();
+        TelegramBot bot = new TelegramBot();
+        bot.setToken(environment.getProperty("telegram.bot.id"));
+
+        channel = new TelegramChannel();
+        channel.setBot(bot);
+        channel.setChannelId(environment.getProperty("telegram.channel.id"));
     }
 
     @ParameterizedTest
@@ -62,9 +66,9 @@ class TelegramSenderTests {
         File file = new File(Objects.requireNonNull(classLoader.getResource(jsonFileName)).getFile());
 
         ObjectMapper mapper = new ObjectMapper();
-        Object event = restConverterFactory.toModel(mapper.readValue(file, dtoClass));
-        String message = messageBuilder.toMessage(event);
-        SendResponse response = sender.send(channel, message, messageBuilder.getParseMode(event));
+        WebhookEvent event = restConverterFactory.toModel(mapper.readValue(file, dtoClass));
+        Message message = messageBuilder.toMessage(event);
+        SendResponse response = sender.send(channel, message);
 
         System.out.println(response);
 

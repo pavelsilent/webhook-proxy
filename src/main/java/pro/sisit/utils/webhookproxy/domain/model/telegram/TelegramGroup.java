@@ -1,7 +1,8 @@
-package pro.sisit.utils.webhookproxy.domain;
+package pro.sisit.utils.webhookproxy.domain.model.telegram;
 
 import lombok.Builder;
 import lombok.Data;
+import pro.sisit.utils.webhookproxy.domain.Target;
 
 @Data
 @Builder

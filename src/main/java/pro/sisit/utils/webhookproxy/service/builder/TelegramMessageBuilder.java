@@ -1,17 +1,19 @@
 package pro.sisit.utils.webhookproxy.service.builder;
 
 import com.pengrad.telegrambot.model.request.ParseMode;
-import pro.sisit.utils.webhookproxy.domain.model.gitlab.event.CommitCommentEvent;
-import pro.sisit.utils.webhookproxy.domain.model.gitlab.event.MergeRequestCommentEvent;
-import pro.sisit.utils.webhookproxy.domain.model.gitlab.event.MergeRequestEvent;
-import pro.sisit.utils.webhookproxy.domain.model.gitlab.event.PipelineEvent;
-import pro.sisit.utils.webhookproxy.domain.model.jenkins.BuildEvent;
+import pro.sisit.utils.webhookproxy.domain.WebhookEvent;
+import pro.sisit.utils.webhookproxy.domain.model.telegram.Message;
 
-public interface TelegramMessageBuilder<T> {
+public interface TelegramMessageBuilder<T extends WebhookEvent> {
 
-    ParseMode getParseMode();
+    Message toMessage(T event);
 
-    String toMessage(T event);
+    default Message toMessage(String payload, ParseMode parseMode) {
+        return Message.builder()
+                .payload(payload)
+                .parseMode(parseMode)
+                .build();
+    }
 
-    boolean supports(Object event);
+    <E extends WebhookEvent> boolean supports(E event);
 }

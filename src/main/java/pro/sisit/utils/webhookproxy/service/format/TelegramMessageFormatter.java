@@ -1,4 +1,4 @@
-package pro.sisit.utils.webhookproxy.service;
+package pro.sisit.utils.webhookproxy.service.format;
 
 import com.pengrad.telegrambot.model.request.ParseMode;
 

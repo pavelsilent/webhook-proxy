@@ -3,18 +3,18 @@ package pro.sisit.utils.webhookproxy.service.transform.gitlab;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.event.MergeRequestEvent;
-import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.GitLabWebHookMergeRequestDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.GitLabMergeRequestDTO;
 import pro.sisit.utils.webhookproxy.service.transform.GitlabRestConverter;
-import pro.sisit.utils.webhookproxy.service.transform.WebHookRestConverter;
+import pro.sisit.utils.webhookproxy.service.transform.RestConverter;
 
 @Service
 @RequiredArgsConstructor
-public class MergeRequestEventRestConverter implements WebHookRestConverter<MergeRequestEvent, GitLabWebHookMergeRequestDTO> {
+public class MergeRequestEventRestConverter implements RestConverter<MergeRequestEvent, GitLabMergeRequestDTO> {
 
     private final GitlabRestConverter restConverter;
 
     @Override
-    public MergeRequestEvent toModel(GitLabWebHookMergeRequestDTO dto) {
+    public MergeRequestEvent toModel(GitLabMergeRequestDTO dto) {
         MergeRequestEvent model = new MergeRequestEvent();
         model.setUser(restConverter.toModel(dto.user));
         model.setRepository(restConverter.toModel(dto.repository));
@@ -25,6 +25,6 @@ public class MergeRequestEventRestConverter implements WebHookRestConverter<Merg
 
     @Override
     public boolean supports(Object dto) {
-        return GitLabWebHookMergeRequestDTO.class.equals(dto.getClass());
+        return GitLabMergeRequestDTO.class.equals(dto.getClass());
     }
 }

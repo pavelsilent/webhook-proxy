@@ -1,0 +1,42 @@
+{
+  "object_kind": "build",
+  "object_kind": "build",
+  "ref": "master",
+  "tag": false,
+  "before_sha": "dc05eb13cbe4c00934583a063246f7cc10e8a462",
+  "sha": "8d60603355a80bb397bdd94dd9a537458cd3c479",
+  "build_id": 81349,
+  "build_name": "build-latest",
+  "build_stage": "build",
+  "build_status": "canceled",
+  "build_finished_at": "2020-09-03T05:36:30.462Z",
+  "build_allow_failure": false,
+  "build_failure_reason": "unknown_failure",
+  "pipeline_id": 70059,
+  "project_id": 181,
+  "project_name": "etalon / jetalon_libs / data-types",
+  "user": {
+    "name": "Павел Брычев",
+    "username": "p.brichev.sis",
+    "avatar_url": "https://www.gravatar.com/avatar/f6804a68f9eda6089d7eac0c7204a5aa?s=80&d=identicon",
+    "email": "p.brichev.sis@gmail.com"
+  },
+  "commit": {
+    "id": 70059,
+    "sha": "8d60603355a80bb397bdd94dd9a537458cd3c479",
+    "message": "Merge branch 'master' of 192.168.5.156.nip.io:etalon/jetalon_libs/data-types\n",
+    "author_name": "p.brichev",
+    "author_email": "p.brichev@sis-it.pro",
+    "status": "failed",
+    "finished_at": "2020-09-03T05:51:13.212Z"
+  },
+  "repository": {
+    "name": "data-types",
+    "url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/data-types.git",
+    "description": "",
+    "homepage": "http://192.168.5.156.nip.io/etalon/jetalon_libs/data-types",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/data-types.git",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/data-types.git",
+    "visibility_level": 0
+  }
+}

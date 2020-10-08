@@ -8,7 +8,7 @@ import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class PipelineEvent extends GitlabWebhookEvent {
+public class PipelineEvent extends GitlabEvent {
 
     private PipelineModel pipeline;
 

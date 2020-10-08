@@ -1,0 +1,49 @@
+{
+  "object_kind": "build",
+  "object_kind": "build",
+  "ref": "master",
+  "tag": false,
+  "before_sha": "4282e8607d4d3f571d32e056e1822f0071ce7d40",
+  "sha": "57e094d1fc1c06474c4855dad09e252aa705456d",
+  "build_id": 83925,
+  "build_name": "test",
+  "build_stage": "test",
+  "build_status": "running",
+  "build_started_at": "2020-10-08 06:02:32 UTC",
+  "build_duration": 0,
+  "build_allow_failure": false,
+  "build_failure_reason": "unknown_failure",
+  "pipeline_id": 72378,
+  "project_id": 185,
+  "project_name": "etalon / jetalon_libs / measure_calculation",
+  "user": {
+    "name": "Денис Кернер",
+    "username": "d.kerner.sis",
+    "avatar_url": "https://www.gravatar.com/avatar/1fbd657f8ce6feba83dc8cc9c833090d?s=80&d=identicon",
+    "email": "d.kerner.sis@gmail.com"
+  },
+  "commit": {
+    "id": 72378,
+    "sha": "57e094d1fc1c06474c4855dad09e252aa705456d",
+    "message": "Merge branch 'JET-1398' into 'master'\n\nJET-1398\n\nCloses JET-1398\n\nSee merge request etalon/jetalon_libs/measure_calculation!6",
+    "author_name": "Денис Кернер",
+    "author_email": "d.kerner.sis@gmail.com",
+    "status": "running",
+    "started_at": "2020-10-08 06:01:48 UTC"
+  },
+  "repository": {
+    "name": "measure_calculation",
+    "url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+    "description": "",
+    "homepage": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation.git",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+    "visibility_level": 0
+  },
+  "runner": {
+    "active": true,
+    "is_shared": false,
+    "id": 25,
+    "description": "jetalon_libs_runner"
+  }
+}

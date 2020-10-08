@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pro.sisit.utils.webhookproxy.data.ProxyRuleFilterRepository;
 import pro.sisit.utils.webhookproxy.data.ProxyRuleRepository;
-import pro.sisit.utils.webhookproxy.domain.WebhookEvent;
+import pro.sisit.utils.webhookproxy.domain.Event;
 import pro.sisit.utils.webhookproxy.domain.entity.Filter;
 import pro.sisit.utils.webhookproxy.domain.entity.ProxyRule;
 import pro.sisit.utils.webhookproxy.domain.entity.Target;
@@ -25,7 +25,7 @@ public class ProxyRuleQueryService {
 
     private final ProxyRuleFilterRepository proxyRuleFilterRepository;
 
-    public List<Target> findTargets(WebhookEvent event) {
+    public List<Target> findTargets(Event event) {
         return Optional.ofNullable(event)
                 .map(data -> proxyRuleRepository.findAllBySource(event.getSource())
                         .stream()
@@ -36,13 +36,13 @@ public class ProxyRuleQueryService {
 
     }
 
-    public boolean canProxy(ProxyRule rule, WebhookEvent event) {
+    public boolean canProxy(ProxyRule rule, Event event) {
         return proxyRuleFilterRepository.findAllByRuleId(rule.getId()).stream()
                 .anyMatch(proxyRuleFilter ->
                         isEventSatisfy(proxyRuleFilter.getFilter(), event));
     }
 
-    public boolean isEventSatisfy(Filter filter, WebhookEvent event) {
+    public boolean isEventSatisfy(Filter filter, Event event) {
         if (filter == null || event == null) {
             return false;
         }
@@ -61,7 +61,7 @@ public class ProxyRuleQueryService {
             ClassNameFilter classNameFilter = (ClassNameFilter) filter;
             String className = classNameFilter.getClassName();
             return Optional.of(event)
-                    .map(WebhookEvent::getClass)
+                    .map(Event::getClass)
                     .map(Class::getCanonicalName)
                     .map(className::equals)
                     .orElse(false);

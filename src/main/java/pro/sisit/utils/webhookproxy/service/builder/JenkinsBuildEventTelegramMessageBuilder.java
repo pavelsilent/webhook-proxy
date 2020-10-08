@@ -2,7 +2,7 @@ package pro.sisit.utils.webhookproxy.service.builder;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import pro.sisit.utils.webhookproxy.domain.WebhookEvent;
+import pro.sisit.utils.webhookproxy.domain.Event;
 import pro.sisit.utils.webhookproxy.domain.model.jenkins.BuildEvent;
 import pro.sisit.utils.webhookproxy.domain.model.telegram.Message;
 import pro.sisit.utils.webhookproxy.service.format.TelegramMessageFormatterHTML;
@@ -16,7 +16,7 @@ public class JenkinsBuildEventTelegramMessageBuilder implements TelegramMessageB
     @Override
     public Message toMessage(BuildEvent event) {
         return toMessage(
-                String.format("Project %s%n%s has %s status.",
+                String.format("Project %s.%n%s has %s status.",
                         event.getProjectName(),
                         messageFormatter.link(event.getUrl(), String.format("Build %s", event.getName())),
                         messageFormatter.underline(messageFormatter.bold(event.getStatus().name()))),
@@ -24,7 +24,7 @@ public class JenkinsBuildEventTelegramMessageBuilder implements TelegramMessageB
     }
 
     @Override
-    public <E extends WebhookEvent> boolean supports(E event) {
+    public <E extends Event> boolean supports(E event) {
         return event instanceof BuildEvent;
     }
 

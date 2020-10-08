@@ -12,16 +12,17 @@ import org.junit.jupiter.params.provider.ArgumentsSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.env.Environment;
-import pro.sisit.utils.webhookproxy.domain.WebhookEvent;
+import pro.sisit.utils.webhookproxy.domain.Event;
 import pro.sisit.utils.webhookproxy.domain.entity.TelegramBot;
 import pro.sisit.utils.webhookproxy.domain.entity.target.TelegramChannel;
 import pro.sisit.utils.webhookproxy.domain.model.telegram.Message;
-import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.GitLabWebHookDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.GitLabDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.GitLabPushDTO;
 import pro.sisit.utils.webhookproxy.rest.dto.jenkins.JenkinsBuildEventDTO;
 import pro.sisit.utils.webhookproxy.service.builder.TelegramMessageBuilderFactory;
 import pro.sisit.utils.webhookproxy.service.sender.TelegramSender;
 import pro.sisit.utils.webhookproxy.service.transform.GitlabRestConverter;
-import pro.sisit.utils.webhookproxy.service.transform.WebHookRestConverterFactory;
+import pro.sisit.utils.webhookproxy.service.transform.RestConverterFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -35,7 +36,7 @@ class TelegramSenderTests {
     private GitlabRestConverter restConverter;
 
     @Autowired
-    private WebHookRestConverterFactory restConverterFactory;
+    private RestConverterFactory restConverterFactory;
 
     @Autowired
     private TelegramMessageBuilderFactory messageBuilder;
@@ -66,7 +67,7 @@ class TelegramSenderTests {
         File file = new File(Objects.requireNonNull(classLoader.getResource(jsonFileName)).getFile());
 
         ObjectMapper mapper = new ObjectMapper();
-        WebhookEvent event = restConverterFactory.toModel(mapper.readValue(file, dtoClass));
+        Event event = restConverterFactory.toModel(mapper.readValue(file, dtoClass));
         Message message = messageBuilder.toMessage(event);
         SendResponse response = sender.send(channel, message);
 
@@ -82,10 +83,11 @@ class TelegramSenderTests {
         @Override
         public Stream<? extends Arguments> provideArguments(ExtensionContext context) {
             return Stream.of(
-                    new Object[]{"gitlab/merge-request-event.json", GitLabWebHookDTO.class},
-                    new Object[]{"gitlab/merge-request-comment-event.json", GitLabWebHookDTO.class},
-                    new Object[]{"gitlab/commit-comment-event.json", GitLabWebHookDTO.class},
-                    new Object[]{"gitlab/pipeline-event.json", GitLabWebHookDTO.class},
+                    new Object[]{"gitlab/merge-request-event.json", GitLabDTO.class},
+                    new Object[]{"gitlab/merge-request-comment-event.json", GitLabDTO.class},
+                    new Object[]{"gitlab/commit-comment-event.json", GitLabDTO.class},
+                    new Object[]{"gitlab/pipeline-event.json", GitLabDTO.class},
+                    new Object[]{"gitlab/push-event.json", GitLabPushDTO.class},
                     new Object[]{"jenkins/build-event.json", JenkinsBuildEventDTO.class})
                     .map(Arguments::of);
         }

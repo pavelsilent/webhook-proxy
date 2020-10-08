@@ -2,7 +2,7 @@ package pro.sisit.utils.webhookproxy.service.builder;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import pro.sisit.utils.webhookproxy.domain.WebhookEvent;
+import pro.sisit.utils.webhookproxy.domain.Event;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.CommentModel;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.MergeRequestModel;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.ProjectModel;
@@ -25,19 +25,19 @@ public class GitLabMergeRequestCommentEventTelegramMessageBuilder implements Tel
         CommentModel comment = event.getComment();
 
         return toMessage(
-                String.format("Project %s\n" +
-                                "User %s add comment to %s %s\n" +
-                                "   %s",
-                        messageFormatter.link(project.getUrl(), project.getName()),
+                String.format("Project %s.%n" +
+                                "User %s add comment to %n%s %s%n" +
+                                "   @%s  \"%s\"",
+                        messageFormatter.link(project.getUrl(), project.getFullName()),
                         messageFormatter.bold(user.getName()),
-                        messageFormatter.link(comment.getUrl(), comment.getTarget().getLabel()),
-                        merge.getTitle(),
-                        messageFormatter.italic(comment.getText())),
+                        comment.getTarget().getLabel(),
+                        messageFormatter.link(comment.getUrl(), merge.getShortMessage()),
+                        user.getLogin(), messageFormatter.italic(comment.getText())),
                 messageFormatter.getParseMode());
     }
 
     @Override
-    public <E extends WebhookEvent> boolean supports(E event) {
+    public <E extends Event> boolean supports(E event) {
         return event instanceof MergeRequestCommentEvent;
     }
 }

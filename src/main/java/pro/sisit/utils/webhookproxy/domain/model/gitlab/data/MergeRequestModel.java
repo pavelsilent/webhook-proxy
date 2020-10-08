@@ -1,6 +1,7 @@
 package pro.sisit.utils.webhookproxy.domain.model.gitlab.data;
 
 import lombok.Data;
+import pro.sisit.utils.webhookproxy.util.StringUtil;
 
 @Data
 public class MergeRequestModel {
@@ -30,5 +31,9 @@ public class MergeRequestModel {
     private String mergeStatus;
 
     private boolean workInProgress;
+
+    public String getShortMessage() {
+        return StringUtil.getCutEscapedString(title);
+    }
 
 }

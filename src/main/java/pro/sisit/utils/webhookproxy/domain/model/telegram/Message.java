@@ -11,4 +11,8 @@ public class Message {
     private String payload;
 
     private ParseMode parseMode;
+
+    public static Message empty() {
+        return new Message("", ParseMode.HTML);
+    }
 }

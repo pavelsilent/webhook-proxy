@@ -18,11 +18,11 @@ public class WebHookProxyApplication {
         SpringApplication.run(WebHookProxyApplication.class, args);
     }
 
-    @PostConstruct
-    public void test() {
-        telegramSender.send(TelegramGroup.builder()
-                .botId(environment.getProperty("telegram.bot.id"))
-                .channelId(environment.getProperty("telegram.channel.id"))
-                .build(), "Проверка отправки multi-language message - сообщения :-)", ParseMode.HTML);
-    }
+//    @PostConstruct
+//    public void test() {
+//        telegramSender.send(TelegramGroup.builder()
+//                .botId(environment.getProperty("telegram.bot.id"))
+//                .channelId(environment.getProperty("telegram.channel.id"))
+//                .build(), "Проверка отправки multi-language message - сообщения :-)", ParseMode.HTML);
+//    }
 }

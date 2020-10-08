@@ -1,6 +1,7 @@
 package pro.sisit.utils.webhookproxy.domain.model.gitlab.data;
 
 import lombok.Data;
+import pro.sisit.utils.webhookproxy.domain.model.gitlab.enumeration.PipelineSource;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.enumeration.PipelineStatus;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public class PipelineModel {
 
     private List<String> stages;
 
-    private String source;
+    private PipelineSource source;
 
     private String ref;
 

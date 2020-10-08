@@ -3,19 +3,19 @@ package pro.sisit.utils.webhookproxy.service.transform.gitlab;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.event.MergeRequestCommentEvent;
-import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.GitLabWebHookCommentDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.GitLabCommentDTO;
 import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.MergeRequestDTO;
 import pro.sisit.utils.webhookproxy.service.transform.GitlabRestConverter;
-import pro.sisit.utils.webhookproxy.service.transform.WebHookRestConverter;
+import pro.sisit.utils.webhookproxy.service.transform.RestConverter;
 
 @Service
 @RequiredArgsConstructor
-public class MergeRequestCommentEventRestConverter implements WebHookRestConverter<MergeRequestCommentEvent, GitLabWebHookCommentDTO> {
+public class MergeRequestCommentEventRestConverter implements RestConverter<MergeRequestCommentEvent, GitLabCommentDTO> {
 
     private final GitlabRestConverter restConverter;
 
     @Override
-    public MergeRequestCommentEvent toModel(GitLabWebHookCommentDTO dto) {
+    public MergeRequestCommentEvent toModel(GitLabCommentDTO dto) {
         MergeRequestCommentEvent model = new MergeRequestCommentEvent();
         model.setUser(restConverter.toModel(dto.user));
         model.setRepository(restConverter.toModel(dto.repository));
@@ -27,12 +27,12 @@ public class MergeRequestCommentEventRestConverter implements WebHookRestConvert
 
     @Override
     public boolean supports(Object dto) {
-        if (!(dto instanceof GitLabWebHookCommentDTO)) {
+        if (!(dto instanceof GitLabCommentDTO)) {
             return false;
         }
 
-        GitLabWebHookCommentDTO comment = (GitLabWebHookCommentDTO) dto;
-        return GitLabWebHookCommentDTO.class.equals(dto.getClass()) &&
+        GitLabCommentDTO comment = (GitLabCommentDTO) dto;
+        return GitLabCommentDTO.class.equals(dto.getClass()) &&
                 MergeRequestDTO.class.equals(comment.getTarget().getClass());
 
     }

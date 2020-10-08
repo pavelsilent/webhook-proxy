@@ -3,9 +3,9 @@ package pro.sisit.utils.webhookproxy.service.transform.gitlab;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.event.PipelineEvent;
-import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.GitLabWebHookPipelineDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.GitLabPipelineDTO;
 import pro.sisit.utils.webhookproxy.service.transform.GitlabRestConverter;
-import pro.sisit.utils.webhookproxy.service.transform.WebHookRestConverter;
+import pro.sisit.utils.webhookproxy.service.transform.RestConverter;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -13,12 +13,12 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class PipelineEventRestConverter implements WebHookRestConverter<PipelineEvent, GitLabWebHookPipelineDTO> {
+public class PipelineEventRestConverter implements RestConverter<PipelineEvent, GitLabPipelineDTO> {
 
     private final GitlabRestConverter restConverter;
 
     @Override
-    public PipelineEvent toModel(GitLabWebHookPipelineDTO dto) {
+    public PipelineEvent toModel(GitLabPipelineDTO dto) {
         PipelineEvent model = new PipelineEvent();
         model.setPipeline(restConverter.toModel(dto.pipelineData));
         model.setBuilds(
@@ -35,6 +35,6 @@ public class PipelineEventRestConverter implements WebHookRestConverter<Pipeline
 
     @Override
     public boolean supports(Object dto) {
-        return GitLabWebHookPipelineDTO.class.equals(dto.getClass());
+        return GitLabPipelineDTO.class.equals(dto.getClass());
     }
 }

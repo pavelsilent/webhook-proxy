@@ -1,0 +1,154 @@
+{
+  "object_kind": "pipeline",
+  "object_attributes": {
+    "id": 70059,
+    "ref": "master",
+    "tag": false,
+    "sha": "8d60603355a80bb397bdd94dd9a537458cd3c479",
+    "before_sha": "dc05eb13cbe4c00934583a063246f7cc10e8a462",
+    "source": "push",
+    "status": "failed",
+    "stages": [
+      "build",
+      "test"
+    ],
+    "created_at": "2020-09-03T04:59:55.839Z",
+    "finished_at": "2020-09-03T05:51:13.212Z",
+    "variables": []
+  },
+  "user": {
+    "name": "Павел Брычев",
+    "username": "p.brichev.sis",
+    "avatar_url": "https://www.gravatar.com/avatar/f6804a68f9eda6089d7eac0c7204a5aa?s=80&d=identicon",
+    "email": "p.brichev.sis@gmail.com"
+  },
+  "project": {
+    "id": 181,
+    "name": "data-types",
+    "description": "",
+    "web_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/data-types",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/data-types.git",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/data-types.git",
+    "namespace": "jetalon_libs",
+    "visibility_level": 0,
+    "path_with_namespace": "etalon/jetalon_libs/data-types",
+    "ci_config_path": "",
+    "default_branch": "master"
+  },
+  "commit": {
+    "id": "8d60603355a80bb397bdd94dd9a537458cd3c479",
+    "message": "Merge branch 'master' of 192.168.5.156.nip.io:etalon/jetalon_libs/data-types\n",
+    "timestamp": "2020-09-03T11:59:48+07:00",
+    "url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/data-types/-/commit/8d60603355a80bb397bdd94dd9a537458cd3c479",
+    "author": {
+      "name": "p.brichev",
+      "email": "p.brichev@sis-it.pro"
+    }
+  },
+  "builds": [
+    {
+      "id": 81349,
+      "stage": "build",
+      "name": "build-latest",
+      "status": "canceled",
+      "created_at": "2020-09-03T04:59:56.262Z",
+      "finished_at": "2020-09-03T05:36:30.462Z",
+      "when": "on_success",
+      "manual": false,
+      "allow_failure": false,
+      "user": {
+        "name": "Павел Брычев",
+        "username": "p.brichev.sis",
+        "avatar_url": "https://www.gravatar.com/avatar/f6804a68f9eda6089d7eac0c7204a5aa?s=80&d=identicon",
+        "email": "p.brichev.sis@gmail.com"
+      },
+      "artifacts_file": {}
+    },
+    {
+      "id": 81350,
+      "stage": "test",
+      "name": "test",
+      "status": "canceled",
+      "created_at": "2020-09-03T04:59:56.623Z",
+      "finished_at": "2020-09-03T05:46:12.469Z",
+      "when": "on_success",
+      "manual": false,
+      "allow_failure": false,
+      "user": {
+        "name": "Павел Брычев",
+        "username": "p.brichev.sis",
+        "avatar_url": "https://www.gravatar.com/avatar/f6804a68f9eda6089d7eac0c7204a5aa?s=80&d=identicon",
+        "email": "p.brichev.sis@gmail.com"
+      },
+      "artifacts_file": {}
+    },
+    {
+      "id": 81365,
+      "stage": "build",
+      "name": "build-latest",
+      "status": "failed",
+      "created_at": "2020-09-03T05:36:32.460Z",
+      "started_at": "2020-09-03T05:36:35.541Z",
+      "finished_at": "2020-09-03T05:37:13.637Z",
+      "when": "on_success",
+      "manual": false,
+      "allow_failure": false,
+      "user": {
+        "name": "Игорь Власов",
+        "username": "Vlasov",
+        "avatar_url": "https://www.gravatar.com/avatar/c7db714c89f30fd7336174294ba5c6e5?s=80&d=identicon",
+        "email": "i.vlasov.sis@gmail.com"
+      },
+      "runner": {
+        "id": 12,
+        "description": "carma-runner",
+        "active": true,
+        "is_shared": false
+      },
+      "artifacts_file": {}
+    },
+    {
+      "id": 81372,
+      "stage": "build",
+      "name": "build-latest",
+      "status": "failed",
+      "created_at": "2020-09-03T05:46:22.023Z",
+      "started_at": "2020-09-03T05:50:55.722Z",
+      "finished_at": "2020-09-03T05:51:13.026Z",
+      "when": "on_success",
+      "manual": false,
+      "allow_failure": false,
+      "user": {
+        "name": "Игорь Власов",
+        "username": "Vlasov",
+        "avatar_url": "https://www.gravatar.com/avatar/c7db714c89f30fd7336174294ba5c6e5?s=80&d=identicon",
+        "email": "i.vlasov.sis@gmail.com"
+      },
+      "runner": {
+        "id": 25,
+        "description": "jetalon_libs_runner",
+        "active": true,
+        "is_shared": false
+      },
+      "artifacts_file": {}
+    },
+    {
+      "id": 81370,
+      "stage": "build",
+      "name": "build-latest",
+      "status": "canceled",
+      "created_at": "2020-09-03T05:42:53.293Z",
+      "finished_at": "2020-09-03T05:46:12.488Z",
+      "when": "on_success",
+      "manual": false,
+      "allow_failure": false,
+      "user": {
+        "name": "Игорь Власов",
+        "username": "Vlasov",
+        "avatar_url": "https://www.gravatar.com/avatar/c7db714c89f30fd7336174294ba5c6e5?s=80&d=identicon",
+        "email": "i.vlasov.sis@gmail.com"
+      },
+      "artifacts_file": {}
+    }
+  ]
+}

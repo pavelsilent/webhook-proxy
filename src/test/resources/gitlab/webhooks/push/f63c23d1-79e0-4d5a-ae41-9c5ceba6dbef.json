@@ -1,0 +1,63 @@
+{
+  "object_kind": "push",
+  "object_kind": "push",
+  "before": "0000000000000000000000000000000000000000",
+  "after": "0e3b3ea83beef796805b25b911e840727f73fd69",
+  "ref": "refs/heads/JET-1398",
+  "checkout_sha": "0e3b3ea83beef796805b25b911e840727f73fd69",
+  "user_id": 59,
+  "user_name": "Дмитрий Хицунов",
+  "user_username": "d.hitsunov.sis",
+  "user_email": "",
+  "user_avatar": "https://www.gravatar.com/avatar/99060b2b53e24c6d7af0435e4f02b4dd?s=80&d=identicon",
+  "project_id": 185,
+  "project": {
+    "id": 185,
+    "name": "measure_calculation",
+    "description": "",
+    "web_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation.git",
+    "namespace": "jetalon_libs",
+    "visibility_level": 0,
+    "path_with_namespace": "etalon/jetalon_libs/measure_calculation",
+    "default_branch": "master",
+    "homepage": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation",
+    "url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+    "ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+    "http_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation.git"
+  },
+  "repository": {
+    "name": "measure_calculation",
+    "url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+    "description": "",
+    "homepage": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation.git",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+    "visibility_level": 0
+  },
+  "commits": [
+    {
+      "id": "0e3b3ea83beef796805b25b911e840727f73fd69",
+      "message": "JET-1398\n",
+      "timestamp": "2020-10-08T12:52:05+07:00",
+      "url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation/-/commit/0e3b3ea83beef796805b25b911e840727f73fd69",
+      "author": {
+        "name": "dhitsunov",
+        "email": "d.hitsunov.sis@gmail.com"
+      },
+      "title": "JET-1398",
+      "added": [
+        "src/test/java/pro/sisit/etalon/measure/calc/dataconfiguration/service/StoredMeasureCalculationConfigDataImporterTest.java"
+      ],
+      "modified": [
+        "build.gradle",
+        "src/main/java/pro/sisit/etalon/measure/calc/dataconfiguration/service/StoredMeasureCalculationRulesConfigDataImporter.java",
+        "src/main/java/pro/sisit/etalon/measure/calc/dataconfiguration/service/StoredMeasureCalculationService.java",
+        "src/main/java/pro/sisit/etalon/measure/calc/dynamic/StoredMeasureCalculationLoader.java"
+      ],
+      "removed": []
+    }
+  ],
+  "total_commits_count": 1
+}

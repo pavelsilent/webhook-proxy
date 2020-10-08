@@ -6,7 +6,7 @@ import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.*;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class CommitCommentEvent extends GitlabWebhookEvent {
+public class CommitCommentEvent extends GitlabEvent {
 
     private UserModel user;
 

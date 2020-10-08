@@ -1,10 +1,10 @@
 package pro.sisit.utils.webhookproxy.service.builder;
 
 import com.pengrad.telegrambot.model.request.ParseMode;
-import pro.sisit.utils.webhookproxy.domain.WebhookEvent;
+import pro.sisit.utils.webhookproxy.domain.Event;
 import pro.sisit.utils.webhookproxy.domain.model.telegram.Message;
 
-public interface TelegramMessageBuilder<T extends WebhookEvent> {
+public interface TelegramMessageBuilder<T extends Event> {
 
     Message toMessage(T event);
 
@@ -15,5 +15,5 @@ public interface TelegramMessageBuilder<T extends WebhookEvent> {
                 .build();
     }
 
-    <E extends WebhookEvent> boolean supports(E event);
+    <E extends Event> boolean supports(E event);
 }

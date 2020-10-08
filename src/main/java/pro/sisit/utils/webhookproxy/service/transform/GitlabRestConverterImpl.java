@@ -3,6 +3,7 @@ package pro.sisit.utils.webhookproxy.service.transform;
 import org.springframework.stereotype.Service;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.*;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.enumeration.CommentTarget;
+import pro.sisit.utils.webhookproxy.domain.model.gitlab.enumeration.PipelineSource;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.enumeration.PipelineStatus;
 import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.*;
 import pro.sisit.utils.webhookproxy.util.NumberUtil;
@@ -34,6 +35,7 @@ public class GitlabRestConverterImpl implements GitlabRestConverter {
         ProjectModel model = new ProjectModel();
         model.setExternalId(NumberUtil.of(dto.id));
         model.setName(dto.name);
+        model.setFullName(dto.pathWithNamespace);
         model.setUrl(dto.webUrl);
         return model;
     }
@@ -135,10 +137,10 @@ public class GitlabRestConverterImpl implements GitlabRestConverter {
     public PipelineModel toModel(PipelineDataDTO dto) {
         PipelineModel model = new PipelineModel();
         model.setExternalId(NumberUtil.of(dto.id));
-        model.setStatus(PipelineStatus.resolve(dto.status));
+        model.setStatus(PipelineStatus.resolveSoft(dto.status).orElse(null));
         model.setStages(dto.stages);
         model.setDuration(Long.valueOf(dto.duration));
-        model.setSource(dto.source);
+        model.setSource(PipelineSource.resolveSoft(dto.source).orElse(null));
         model.setRef(dto.ref);
         return model;
     }

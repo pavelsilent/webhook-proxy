@@ -1,11 +1,11 @@
 package pro.sisit.utils.webhookproxy.domain.model.jenkins;
 
 import lombok.Data;
-import pro.sisit.utils.webhookproxy.domain.WebhookEvent;
+import pro.sisit.utils.webhookproxy.domain.Event;
 import pro.sisit.utils.webhookproxy.domain.Source;
 
 @Data
-public class BuildEvent implements WebhookEvent {
+public class BuildEvent implements Event {
 
     private String name;
 

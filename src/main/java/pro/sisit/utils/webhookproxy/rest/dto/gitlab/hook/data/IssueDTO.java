@@ -4,10 +4,10 @@ package pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
-import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.WebHookCommentTargetDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.GitLabCommentTargetDTO;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class IssueDTO implements WebHookCommentTargetDTO {
+public class IssueDTO implements GitLabCommentTargetDTO {
 
     @JsonProperty("id")
     public Integer id;

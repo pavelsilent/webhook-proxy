@@ -1,6 +1,5 @@
 package pro.sisit.utils.webhookproxy.service.sender;
 
-import com.pengrad.telegrambot.response.SendResponse;
 import pro.sisit.utils.webhookproxy.domain.entity.Target;
 import pro.sisit.utils.webhookproxy.domain.model.telegram.Message;
 

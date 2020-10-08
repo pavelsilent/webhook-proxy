@@ -2,7 +2,7 @@ package pro.sisit.utils.webhookproxy.service.builder;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import pro.sisit.utils.webhookproxy.domain.WebhookEvent;
+import pro.sisit.utils.webhookproxy.domain.Event;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.MergeRequestModel;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.ProjectModel;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.UserModel;
@@ -23,13 +23,13 @@ public class GitLabMergeRequestEventTelegramMessageBuilder implements TelegramMe
         UserModel user = event.getUser();
 
         return toMessage(
-                String.format("Project %s\n" +
-                                "User %s %s merge request %s\n" +
+                String.format("Project %s.%n" +
+                                "User %s %s merge request %s " +
                                 "from branch %s to branch %s.",
-                        messageFormatter.link(project.getUrl(), project.getName()),
+                        messageFormatter.link(project.getUrl(), project.getFullName()),
                         messageFormatter.bold(user.getName()),
                         merge.getState(),
-                        messageFormatter.link(merge.getUrl(), merge.getTitle()),
+                        messageFormatter.link(merge.getUrl(), merge.getShortMessage()),
                         messageFormatter.bold(
                                 messageFormatter.underline(merge.getSourceBranch())),
                         messageFormatter.bold(
@@ -38,7 +38,7 @@ public class GitLabMergeRequestEventTelegramMessageBuilder implements TelegramMe
     }
 
     @Override
-    public <E extends WebhookEvent> boolean supports(E event) {
+    public <E extends Event> boolean supports(E event) {
         return event instanceof MergeRequestEvent;
     }
 }

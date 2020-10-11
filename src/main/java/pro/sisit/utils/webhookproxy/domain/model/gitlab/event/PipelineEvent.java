@@ -1,13 +1,15 @@
 package pro.sisit.utils.webhookproxy.domain.model.gitlab.event;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.*;
 
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class PipelineEvent extends GitlabEvent {
 
     private PipelineModel pipeline;

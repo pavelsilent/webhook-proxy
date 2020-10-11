@@ -10,6 +10,6 @@ import javax.persistence.*;
 public abstract class Target {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 }

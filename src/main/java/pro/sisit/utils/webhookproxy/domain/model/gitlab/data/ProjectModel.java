@@ -1,10 +1,16 @@
 package pro.sisit.utils.webhookproxy.domain.model.gitlab.data;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Optional;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProjectModel {
 
     private Long externalId;

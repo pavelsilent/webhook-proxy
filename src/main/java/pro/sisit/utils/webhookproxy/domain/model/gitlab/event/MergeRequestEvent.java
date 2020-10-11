@@ -1,7 +1,6 @@
 package pro.sisit.utils.webhookproxy.domain.model.gitlab.event;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.MergeRequestModel;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.ProjectModel;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.RepositoryModel;
@@ -9,6 +8,9 @@ import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.UserModel;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class MergeRequestEvent extends GitlabEvent {
 
     private UserModel user;

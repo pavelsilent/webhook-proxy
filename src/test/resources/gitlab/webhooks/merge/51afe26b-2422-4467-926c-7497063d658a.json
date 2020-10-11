@@ -1,0 +1,101 @@
+{
+  "object_kind": "merge_request",
+  "object_kind": "merge_request",
+  "user": {
+    "name": "Дмитрий Хицунов",
+    "username": "d.hitsunov.sis",
+    "avatar_url": "https://www.gravatar.com/avatar/99060b2b53e24c6d7af0435e4f02b4dd?s=80&d=identicon",
+    "email": "d.hitsunov.sis@gmail.com"
+  },
+  "project": {
+    "id": 78,
+    "name": "jetalon",
+    "description": "",
+    "web_url": "http://192.168.5.156.nip.io/etalon/jetalon",
+    "avatar_url": "http://192.168.5.156.nip.io/uploads/-/system/project/avatar/78/photo_2020-01-24_16-05-47.jpg",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon.git",
+    "namespace": "etalon",
+    "visibility_level": 0,
+    "path_with_namespace": "etalon/jetalon",
+    "default_branch": "master",
+    "homepage": "http://192.168.5.156.nip.io/etalon/jetalon",
+    "url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "http_url": "http://192.168.5.156.nip.io/etalon/jetalon.git"
+  },
+  "repository": {
+    "name": "jetalon",
+    "url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "description": "",
+    "homepage": "http://192.168.5.156.nip.io/etalon/jetalon"
+  },
+  "object_attributes": {
+    "id": 22080,
+    "target_branch": "master",
+    "source_branch": "JET-1666",
+    "source_project_id": 78,
+    "author_id": 59,
+    "title": "JET-1666",
+    "created_at": "2020-10-08 07:20:12 UTC",
+    "updated_at": "2020-10-08 07:20:12 UTC",
+    "state": "opened",
+    "merge_status": "unchecked",
+    "target_project_id": 78,
+    "iid": 1311,
+    "description": "Closes JET-1666",
+    "source": {
+      "id": 78,
+      "name": "jetalon",
+      "description": "",
+      "web_url": "http://192.168.5.156.nip.io/etalon/jetalon",
+      "avatar_url": "http://192.168.5.156.nip.io/uploads/-/system/project/avatar/78/photo_2020-01-24_16-05-47.jpg",
+      "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+      "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon.git",
+      "namespace": "etalon",
+      "visibility_level": 0,
+      "path_with_namespace": "etalon/jetalon",
+      "default_branch": "master",
+      "homepage": "http://192.168.5.156.nip.io/etalon/jetalon",
+      "url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+      "ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+      "http_url": "http://192.168.5.156.nip.io/etalon/jetalon.git"
+    },
+    "target": {
+      "id": 78,
+      "name": "jetalon",
+      "description": "",
+      "web_url": "http://192.168.5.156.nip.io/etalon/jetalon",
+      "avatar_url": "http://192.168.5.156.nip.io/uploads/-/system/project/avatar/78/photo_2020-01-24_16-05-47.jpg",
+      "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+      "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon.git",
+      "namespace": "etalon",
+      "visibility_level": 0,
+      "path_with_namespace": "etalon/jetalon",
+      "default_branch": "master",
+      "homepage": "http://192.168.5.156.nip.io/etalon/jetalon",
+      "url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+      "ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+      "http_url": "http://192.168.5.156.nip.io/etalon/jetalon.git"
+    },
+    "url": "http://192.168.5.156.nip.io/etalon/jetalon/-/merge_requests/1311",
+    "action": "open",
+    "last_commit": {
+      "id": "6486f173777bf35dbc528bd74d91a7e13b611325",
+      "message": "JET-1666\n",
+      "timestamp": "2020-10-08T14:18:11+07:00",
+      "url": "http://192.168.5.156.nip.io/etalon/jetalon/-/commit/6486f173777bf35dbc528bd74d91a7e13b611325",
+      "author": {
+        "name": "dhitsunov",
+        "email": "d.hitsunov.sis@gmail.com"
+      }
+    },
+    "work_in_progress": false
+  },
+  "labels": [],
+  "changes": {
+    "updated_at": {
+      "current": "2020-10-08 07:20:12 UTC"
+    }
+  }
+}

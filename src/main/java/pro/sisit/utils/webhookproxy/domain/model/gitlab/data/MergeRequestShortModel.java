@@ -1,8 +1,15 @@
 package pro.sisit.utils.webhookproxy.domain.model.gitlab.data;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import pro.sisit.utils.webhookproxy.util.StringUtil;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class MergeRequestShortModel {
 
     private Long externalId;
@@ -18,4 +25,8 @@ public class MergeRequestShortModel {
     private String state;
 
     private String mergeStatus;
+
+    public String getShortMessage() {
+        return StringUtil.getCutEscapedString(title);
+    }
 }

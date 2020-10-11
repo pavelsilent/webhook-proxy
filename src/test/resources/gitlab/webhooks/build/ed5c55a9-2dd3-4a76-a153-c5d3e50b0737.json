@@ -1,0 +1,43 @@
+{
+  "object_kind": "build",
+  "object_kind": "build",
+  "ref": "master",
+  "tag": false,
+  "before_sha": "8a5f1a8e257274d85d4f222e65d6868e3c959f4f",
+  "sha": "8c0f614d06682b1abcc6d33a2543c70c820f02e4",
+  "build_id": 83963,
+  "build_name": "test",
+  "build_stage": "test",
+  "build_status": "created",
+  "build_allow_failure": false,
+  "build_failure_reason": "unknown_failure",
+  "pipeline_id": 72269,
+  "project_id": 181,
+  "project_name": "etalon / jetalon_libs / data-types",
+  "user": {
+    "name": "Павел Брычев",
+    "username": "p.brichev.sis",
+    "avatar_url": "https://www.gravatar.com/avatar/f6804a68f9eda6089d7eac0c7204a5aa?s=80&d=identicon",
+    "email": "p.brichev.sis@gmail.com"
+  },
+  "commit": {
+    "id": 72269,
+    "sha": "8c0f614d06682b1abcc6d33a2543c70c820f02e4",
+    "message": "Merge branch 'JET-1837' into 'master'\n\nJET-1837\n\nCloses JET-1837\n\nSee merge request etalon/jetalon_libs/data-types!15",
+    "author_name": "Павел Брычев",
+    "author_email": "p.brichev.sis@gmail.com",
+    "status": "running",
+    "started_at": "2020-10-06 09:36:50 UTC",
+    "finished_at": "2020-10-06 09:38:41 UTC",
+    "duration": 109
+  },
+  "repository": {
+    "name": "data-types",
+    "url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/data-types.git",
+    "description": "",
+    "homepage": "http://192.168.5.156.nip.io/etalon/jetalon_libs/data-types",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/data-types.git",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/data-types.git",
+    "visibility_level": 0
+  }
+}

@@ -1,8 +1,9 @@
 package pro.sisit.utils.webhookproxy.service.builder;
 
-import com.pengrad.telegrambot.model.request.ParseMode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import pro.sisit.utils.webhookproxy.domain.Event;
+import pro.sisit.utils.webhookproxy.domain.model.telegram.Message;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,19 +14,13 @@ public class TelegramMessageBuilderFactory {
 
     private final List<TelegramMessageBuilder> services;
 
-    public String toMessage(Object event) {
+    public <E extends Event> Message toMessage(E event) {
         return Optional.ofNullable(getService(event))
                 .map(telegramMessageBuilder -> telegramMessageBuilder.toMessage(event))
                 .orElse(null);
     }
 
-    public ParseMode getParseMode(Object event) {
-        return Optional.ofNullable(getService(event))
-                .map(TelegramMessageBuilder::getParseMode)
-                .orElse(null);
-    }
-
-    private TelegramMessageBuilder getService(Object event) {
+    private <E extends Event> TelegramMessageBuilder getService(E event) {
         return services.stream().filter(telegramMessageBuilder -> telegramMessageBuilder.supports(event))
                 .findFirst().orElseThrow(() -> new RuntimeException("TelegramMessageBuilderFactory. Not supported event: " + event.getClass()));
     }

@@ -1,13 +1,14 @@
 package pro.sisit.utils.webhookproxy.service.builder;
 
-import com.pengrad.telegrambot.model.request.ParseMode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import pro.sisit.utils.webhookproxy.domain.Event;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.MergeRequestModel;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.ProjectModel;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.UserModel;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.event.MergeRequestEvent;
-import pro.sisit.utils.webhookproxy.service.TelegramMessageFormatterHTML;
+import pro.sisit.utils.webhookproxy.domain.model.telegram.Message;
+import pro.sisit.utils.webhookproxy.service.format.TelegramMessageFormatterHTML;
 
 @Service
 @RequiredArgsConstructor
@@ -16,31 +17,28 @@ public class GitLabMergeRequestEventTelegramMessageBuilder implements TelegramMe
     private final TelegramMessageFormatterHTML messageFormatter;
 
     @Override
-    public ParseMode getParseMode() {
-        return messageFormatter.getParseMode();
-    }
-
-    @Override
-    public String toMessage(MergeRequestEvent event) {
+    public Message toMessage(MergeRequestEvent event) {
         ProjectModel project = event.getProject();
         MergeRequestModel merge = event.getMergeRequest();
         UserModel user = event.getUser();
 
-        return String.format("Project %s\n" +
-                        "User %s %s merge request %s\n" +
-                        "from branch %s to branch %s.",
-                messageFormatter.link(project.getUrl(), project.getName()),
-                messageFormatter.bold(user.getName()),
-                merge.getState(),
-                messageFormatter.link(merge.getUrl(), merge.getTitle()),
-                messageFormatter.bold(
-                        messageFormatter.underline(merge.getSourceBranch())),
-                messageFormatter.bold(
-                        messageFormatter.underline(merge.getTargetBranch())));
+        return toMessage(
+                String.format("Project %s.%n" +
+                                "User %s %s merge request %s " +
+                                "from branch %s to branch %s.",
+                        messageFormatter.link(project.getUrl(), project.getFullName()),
+                        messageFormatter.bold(user.getName()),
+                        merge.getState(),
+                        messageFormatter.link(merge.getUrl(), merge.getShortMessage()),
+                        messageFormatter.bold(
+                                messageFormatter.underline(merge.getSourceBranch())),
+                        messageFormatter.bold(
+                                messageFormatter.underline(merge.getTargetBranch()))),
+                messageFormatter.getParseMode());
     }
 
     @Override
-    public boolean supports(Object event) {
+    public <E extends Event> boolean supports(E event) {
         return event instanceof MergeRequestEvent;
     }
 }

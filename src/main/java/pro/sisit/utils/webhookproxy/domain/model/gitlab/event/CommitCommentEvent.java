@@ -1,10 +1,14 @@
 package pro.sisit.utils.webhookproxy.domain.model.gitlab.event;
 
-import lombok.Data;
+import lombok.*;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.*;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class CommitCommentEvent {
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class CommitCommentEvent extends GitlabEvent {
 
     private UserModel user;
 

@@ -1,0 +1,49 @@
+{
+  "object_kind": "pipeline",
+  "object_attributes": {
+    "id": 72385,
+    "ref": "JET-1666",
+    "tag": false,
+    "sha": "6486f173777bf35dbc528bd74d91a7e13b611325",
+    "before_sha": "0000000000000000000000000000000000000000",
+    "source": "external",
+    "status": "success",
+    "stages": [
+      "external"
+    ],
+    "created_at": "2020-10-08 07:20:13 UTC",
+    "finished_at": "2020-10-08 07:38:27 UTC",
+    "duration": 0,
+    "variables": []
+  },
+  "user": {
+    "name": "jenkins",
+    "username": "jenkins",
+    "avatar_url": "https://www.gravatar.com/avatar/14ae62d865c77d4e695eb50d5ee2697c?s=80&d=identicon",
+    "email": "jenkins@no.email"
+  },
+  "project": {
+    "id": 78,
+    "name": "jetalon",
+    "description": "",
+    "web_url": "http://192.168.5.156.nip.io/etalon/jetalon",
+    "avatar_url": "http://192.168.5.156.nip.io/uploads/-/system/project/avatar/78/photo_2020-01-24_16-05-47.jpg",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon.git",
+    "namespace": "etalon",
+    "visibility_level": 0,
+    "path_with_namespace": "etalon/jetalon",
+    "default_branch": "master"
+  },
+  "commit": {
+    "id": "6486f173777bf35dbc528bd74d91a7e13b611325",
+    "message": "JET-1666\n",
+    "timestamp": "2020-10-08T14:18:11+07:00",
+    "url": "http://192.168.5.156.nip.io/etalon/jetalon/-/commit/6486f173777bf35dbc528bd74d91a7e13b611325",
+    "author": {
+      "name": "dhitsunov",
+      "email": "d.hitsunov.sis@gmail.com"
+    }
+  },
+  "builds": []
+}

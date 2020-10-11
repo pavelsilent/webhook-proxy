@@ -1,0 +1,89 @@
+{
+  "object_kind": "pipeline",
+  "object_attributes": {
+    "id": 72378,
+    "ref": "master",
+    "tag": false,
+    "sha": "57e094d1fc1c06474c4855dad09e252aa705456d",
+    "before_sha": "4282e8607d4d3f571d32e056e1822f0071ce7d40",
+    "source": "push",
+    "status": "running",
+    "stages": [
+      "build",
+      "test"
+    ],
+    "created_at": "2020-10-08 06:01:45 UTC",
+    "variables": []
+  },
+  "user": {
+    "name": "Денис Кернер",
+    "username": "d.kerner.sis",
+    "avatar_url": "https://www.gravatar.com/avatar/1fbd657f8ce6feba83dc8cc9c833090d?s=80&d=identicon",
+    "email": "d.kerner.sis@gmail.com"
+  },
+  "project": {
+    "id": 185,
+    "name": "measure_calculation",
+    "description": "",
+    "web_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation.git",
+    "namespace": "jetalon_libs",
+    "visibility_level": 0,
+    "path_with_namespace": "etalon/jetalon_libs/measure_calculation",
+    "default_branch": "master"
+  },
+  "commit": {
+    "id": "57e094d1fc1c06474c4855dad09e252aa705456d",
+    "message": "Merge branch 'JET-1398' into 'master'\n\nJET-1398\n\nCloses JET-1398\n\nSee merge request etalon/jetalon_libs/measure_calculation!6",
+    "timestamp": "2020-10-08T06:01:43+00:00",
+    "url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation/-/commit/57e094d1fc1c06474c4855dad09e252aa705456d",
+    "author": {
+      "name": "Денис Кернер",
+      "email": "d.kerner.sis@gmail.com"
+    }
+  },
+  "builds": [
+    {
+      "id": 83924,
+      "stage": "build",
+      "name": "build-latest",
+      "status": "running",
+      "created_at": "2020-10-08 06:01:45 UTC",
+      "started_at": "2020-10-08 06:01:47 UTC",
+      "when": "on_success",
+      "manual": false,
+      "allow_failure": false,
+      "user": {
+        "name": "Денис Кернер",
+        "username": "d.kerner.sis",
+        "avatar_url": "https://www.gravatar.com/avatar/1fbd657f8ce6feba83dc8cc9c833090d?s=80&d=identicon",
+        "email": "d.kerner.sis@gmail.com"
+      },
+      "runner": {
+        "id": 25,
+        "description": "jetalon_libs_runner",
+        "active": true,
+        "is_shared": false
+      },
+      "artifacts_file": {}
+    },
+    {
+      "id": 83925,
+      "stage": "test",
+      "name": "test",
+      "status": "created",
+      "created_at": "2020-10-08 06:01:45 UTC",
+      "when": "on_success",
+      "manual": false,
+      "allow_failure": false,
+      "user": {
+        "name": "Денис Кернер",
+        "username": "d.kerner.sis",
+        "avatar_url": "https://www.gravatar.com/avatar/1fbd657f8ce6feba83dc8cc9c833090d?s=80&d=identicon",
+        "email": "d.kerner.sis@gmail.com"
+      },
+      "artifacts_file": {}
+    }
+  ]
+}

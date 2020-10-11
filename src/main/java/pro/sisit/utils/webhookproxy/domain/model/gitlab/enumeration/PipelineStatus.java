@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 @Getter
 @RequiredArgsConstructor
@@ -22,10 +23,13 @@ public enum PipelineStatus {
 
     private final String code;
 
+    public static Optional<PipelineStatus> resolveSoft(String code) {
+        return Arrays.stream(values())
+                .filter(commentTarget -> commentTarget.getCode().equals(code))
+                .findFirst();
+    }
+
     public static PipelineStatus resolve(String code) {
-        return Arrays.stream(values()).filter(commentTarget ->
-                commentTarget.getCode().equals(code))
-                .findFirst()
-                .orElseThrow(() -> new RuntimeException(code));
+        return resolveSoft(code).orElseThrow(() -> new RuntimeException(code));
     }
 }

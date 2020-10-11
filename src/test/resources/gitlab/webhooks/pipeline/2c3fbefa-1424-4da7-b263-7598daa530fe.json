@@ -1,0 +1,49 @@
+{
+  "object_kind": "pipeline",
+  "object_attributes": {
+    "id": 72383,
+    "ref": "JET-1805",
+    "tag": false,
+    "sha": "e7aa7db0aedd88f64f8c6e4270c36b733fef385c",
+    "before_sha": "0000000000000000000000000000000000000000",
+    "source": "external",
+    "status": "success",
+    "stages": [
+      "external"
+    ],
+    "created_at": "2020-10-08 06:54:46 UTC",
+    "finished_at": "2020-10-08 07:14:53 UTC",
+    "duration": 0,
+    "variables": []
+  },
+  "user": {
+    "name": "jenkins",
+    "username": "jenkins",
+    "avatar_url": "https://www.gravatar.com/avatar/14ae62d865c77d4e695eb50d5ee2697c?s=80&d=identicon",
+    "email": "jenkins@no.email"
+  },
+  "project": {
+    "id": 78,
+    "name": "jetalon",
+    "description": "",
+    "web_url": "http://192.168.5.156.nip.io/etalon/jetalon",
+    "avatar_url": "http://192.168.5.156.nip.io/uploads/-/system/project/avatar/78/photo_2020-01-24_16-05-47.jpg",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon.git",
+    "namespace": "etalon",
+    "visibility_level": 0,
+    "path_with_namespace": "etalon/jetalon",
+    "default_branch": "master"
+  },
+  "commit": {
+    "id": "e7aa7db0aedd88f64f8c6e4270c36b733fef385c",
+    "message": "JET-1805\n",
+    "timestamp": "2020-10-08T13:54:40+07:00",
+    "url": "http://192.168.5.156.nip.io/etalon/jetalon/-/commit/e7aa7db0aedd88f64f8c6e4270c36b733fef385c",
+    "author": {
+      "name": "v.homyakova.sis",
+      "email": "v.homyakova.sis@gmail.com"
+    }
+  },
+  "builds": []
+}

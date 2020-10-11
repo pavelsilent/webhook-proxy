@@ -1,0 +1,121 @@
+{
+  "object_kind": "pipeline",
+  "object_attributes": {
+    "id": 72269,
+    "ref": "master",
+    "tag": false,
+    "sha": "8c0f614d06682b1abcc6d33a2543c70c820f02e4",
+    "before_sha": "8a5f1a8e257274d85d4f222e65d6868e3c959f4f",
+    "source": "push",
+    "status": "running",
+    "stages": [
+      "build",
+      "test"
+    ],
+    "created_at": "2020-10-06 09:36:46 UTC",
+    "finished_at": "2020-10-06 09:38:41 UTC",
+    "duration": 109,
+    "variables": []
+  },
+  "user": {
+    "name": "Павел Брычев",
+    "username": "p.brichev.sis",
+    "avatar_url": "https://www.gravatar.com/avatar/f6804a68f9eda6089d7eac0c7204a5aa?s=80&d=identicon",
+    "email": "p.brichev.sis@gmail.com"
+  },
+  "project": {
+    "id": 181,
+    "name": "data-types",
+    "description": "",
+    "web_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/data-types",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/data-types.git",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/data-types.git",
+    "namespace": "jetalon_libs",
+    "visibility_level": 0,
+    "path_with_namespace": "etalon/jetalon_libs/data-types",
+    "ci_config_path": "",
+    "default_branch": "master"
+  },
+  "commit": {
+    "id": "8c0f614d06682b1abcc6d33a2543c70c820f02e4",
+    "message": "Merge branch 'JET-1837' into 'master'\n\nJET-1837\n\nCloses JET-1837\n\nSee merge request etalon/jetalon_libs/data-types!15",
+    "timestamp": "2020-10-06T09:36:44+00:00",
+    "url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/data-types/-/commit/8c0f614d06682b1abcc6d33a2543c70c820f02e4",
+    "author": {
+      "name": "Павел Брычев",
+      "email": "p.brichev.sis@gmail.com"
+    }
+  },
+  "builds": [
+    {
+      "id": 83962,
+      "stage": "build",
+      "name": "build-latest",
+      "status": "pending",
+      "created_at": "2020-10-08 11:00:14 UTC",
+      "when": "on_success",
+      "manual": false,
+      "allow_failure": false,
+      "user": {
+        "name": "Павел Брычев",
+        "username": "p.brichev.sis",
+        "avatar_url": "https://www.gravatar.com/avatar/f6804a68f9eda6089d7eac0c7204a5aa?s=80&d=identicon",
+        "email": "p.brichev.sis@gmail.com"
+      },
+      "artifacts_file": {}
+    },
+    {
+      "id": 83787,
+      "stage": "build",
+      "name": "build-latest",
+      "status": "success",
+      "created_at": "2020-10-06 09:36:46 UTC",
+      "started_at": "2020-10-06 09:36:50 UTC",
+      "finished_at": "2020-10-06 09:37:27 UTC",
+      "when": "on_success",
+      "manual": false,
+      "allow_failure": false,
+      "user": {
+        "name": "Павел Брычев",
+        "username": "p.brichev.sis",
+        "avatar_url": "https://www.gravatar.com/avatar/f6804a68f9eda6089d7eac0c7204a5aa?s=80&d=identicon",
+        "email": "p.brichev.sis@gmail.com"
+      },
+      "runner": {
+        "id": 25,
+        "description": "jetalon_libs_runner",
+        "active": true,
+        "is_shared": false
+      },
+      "artifacts_file": {}
+    },
+    {
+      "id": 83788,
+      "stage": "test",
+      "name": "test",
+      "status": "success",
+      "created_at": "2020-10-06 09:36:46 UTC",
+      "started_at": "2020-10-06 09:37:29 UTC",
+      "finished_at": "2020-10-06 09:38:41 UTC",
+      "when": "on_success",
+      "manual": false,
+      "allow_failure": false,
+      "user": {
+        "name": "Павел Брычев",
+        "username": "p.brichev.sis",
+        "avatar_url": "https://www.gravatar.com/avatar/f6804a68f9eda6089d7eac0c7204a5aa?s=80&d=identicon",
+        "email": "p.brichev.sis@gmail.com"
+      },
+      "runner": {
+        "id": 25,
+        "description": "jetalon_libs_runner",
+        "active": true,
+        "is_shared": false
+      },
+      "artifacts_file": {
+        "filename": "artifacts.zip",
+        "size": 3024.0
+      }
+    }
+  ]
+}

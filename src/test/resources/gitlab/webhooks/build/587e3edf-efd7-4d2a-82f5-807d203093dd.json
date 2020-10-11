@@ -1,0 +1,42 @@
+{
+  "object_kind": "build",
+  "object_kind": "build",
+  "ref": "master",
+  "tag": false,
+  "before_sha": "0000000000000000000000000000000000000000",
+  "sha": "405200ed604cb9bb40dd0435ae443f74ea4c2a9a",
+  "build_id": 37034,
+  "build_name": "build",
+  "build_stage": "build",
+  "build_status": "canceled",
+  "build_finished_at": "2018-10-19T07:34:28.960Z",
+  "build_allow_failure": false,
+  "build_failure_reason": "unknown_failure",
+  "pipeline_id": 33656,
+  "project_id": 78,
+  "project_name": "etalon / jetalon",
+  "user": {
+    "name": "Денис Кернер",
+    "username": "d.kerner.sis",
+    "avatar_url": "https://www.gravatar.com/avatar/1fbd657f8ce6feba83dc8cc9c833090d?s=80&d=identicon",
+    "email": "d.kerner.sis@gmail.com"
+  },
+  "commit": {
+    "id": 33656,
+    "sha": "405200ed604cb9bb40dd0435ae443f74ea4c2a9a",
+    "message": "Initial commit",
+    "author_name": "Денис Кернер",
+    "author_email": "d.kerner.sis@gmail.com",
+    "status": "canceled",
+    "finished_at": "2018-10-19T07:34:30.147Z"
+  },
+  "repository": {
+    "name": "jetalon",
+    "url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "description": "",
+    "homepage": "http://192.168.5.156.nip.io/etalon/jetalon",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon.git",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "visibility_level": 0
+  }
+}

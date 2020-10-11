@@ -1,0 +1,39 @@
+{
+  "object_kind": "push",
+  "before": "0e3b3ea83beef796805b25b911e840727f73fd69",
+  "after": "0000000000000000000000000000000000000000",
+  "ref": "refs/heads/JET-1398",
+  "user_id": 59,
+  "user_name": "Дмитрий Хицунов",
+  "user_username": "d.hitsunov.sis",
+  "user_email": "",
+  "user_avatar": "https://www.gravatar.com/avatar/99060b2b53e24c6d7af0435e4f02b4dd?s=80&d=identicon",
+  "project_id": 185,
+  "project": {
+    "id": 185,
+    "name": "measure_calculation",
+    "description": "",
+    "web_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation.git",
+    "namespace": "jetalon_libs",
+    "visibility_level": 0,
+    "path_with_namespace": "etalon/jetalon_libs/measure_calculation",
+    "default_branch": "master",
+    "homepage": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation",
+    "url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+    "ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+    "http_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation.git"
+  },
+  "repository": {
+    "name": "measure_calculation",
+    "url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+    "description": "",
+    "homepage": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation.git",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+    "visibility_level": 0
+  },
+  "commits": [],
+  "total_commits_count": 0
+}

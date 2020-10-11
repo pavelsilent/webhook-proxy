@@ -1,0 +1,82 @@
+{
+  "object_kind": "pipeline",
+  "object_attributes": {
+    "id": 72377,
+    "ref": "JET-1398",
+    "tag": false,
+    "sha": "0e3b3ea83beef796805b25b911e840727f73fd69",
+    "before_sha": "0000000000000000000000000000000000000000",
+    "source": "push",
+    "status": "pending",
+    "stages": [
+      "build",
+      "test"
+    ],
+    "created_at": "2020-10-08 05:53:12 UTC",
+    "variables": []
+  },
+  "user": {
+    "name": "Дмитрий Хицунов",
+    "username": "d.hitsunov.sis",
+    "avatar_url": "https://www.gravatar.com/avatar/99060b2b53e24c6d7af0435e4f02b4dd?s=80&d=identicon",
+    "email": "d.hitsunov.sis@gmail.com"
+  },
+  "project": {
+    "id": 185,
+    "name": "measure_calculation",
+    "description": "",
+    "web_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation.git",
+    "namespace": "jetalon_libs",
+    "visibility_level": 0,
+    "path_with_namespace": "etalon/jetalon_libs/measure_calculation",
+    "default_branch": "master"
+  },
+  "commit": {
+    "id": "0e3b3ea83beef796805b25b911e840727f73fd69",
+    "message": "JET-1398\n",
+    "timestamp": "2020-10-08T12:52:05+07:00",
+    "url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation/-/commit/0e3b3ea83beef796805b25b911e840727f73fd69",
+    "author": {
+      "name": "dhitsunov",
+      "email": "d.hitsunov.sis@gmail.com"
+    }
+  },
+  "builds": [
+    {
+      "id": 83922,
+      "stage": "build",
+      "name": "build-latest",
+      "status": "pending",
+      "created_at": "2020-10-08 05:53:12 UTC",
+      "when": "on_success",
+      "manual": false,
+      "allow_failure": false,
+      "user": {
+        "name": "Дмитрий Хицунов",
+        "username": "d.hitsunov.sis",
+        "avatar_url": "https://www.gravatar.com/avatar/99060b2b53e24c6d7af0435e4f02b4dd?s=80&d=identicon",
+        "email": "d.hitsunov.sis@gmail.com"
+      },
+      "artifacts_file": {}
+    },
+    {
+      "id": 83923,
+      "stage": "test",
+      "name": "test",
+      "status": "created",
+      "created_at": "2020-10-08 05:53:12 UTC",
+      "when": "on_success",
+      "manual": false,
+      "allow_failure": false,
+      "user": {
+        "name": "Дмитрий Хицунов",
+        "username": "d.hitsunov.sis",
+        "avatar_url": "https://www.gravatar.com/avatar/99060b2b53e24c6d7af0435e4f02b4dd?s=80&d=identicon",
+        "email": "d.hitsunov.sis@gmail.com"
+      },
+      "artifacts_file": {}
+    }
+  ]
+}

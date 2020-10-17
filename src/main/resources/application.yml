@@ -1,3 +1,6 @@
+server:
+  port: 8777
+  
 spring:
   datasource:
     url: ${POSTGRES_URL:jdbc:postgresql://localhost:5432/webhook-proxy}
@@ -26,3 +29,5 @@ telegram:
   channel:
     id: '468654555'
     #'-435910891'
+
+

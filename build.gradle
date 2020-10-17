@@ -11,8 +11,10 @@ plugins {
   id 'java'
 }
 
+ext.buildNumber = project.hasProperty('buildNumber') ? buildNumber : 'dev'
+
 group = 'pro.sisit.utils'
-version = '0.0.1-SNAPSHOT'
+version = '1.0.' + buildNumber
 sourceCompatibility = '11'
 
 configurations {

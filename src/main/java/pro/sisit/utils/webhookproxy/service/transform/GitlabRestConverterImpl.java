@@ -1,15 +1,38 @@
 package pro.sisit.utils.webhookproxy.service.transform;
 
+import java.util.Optional;
 import org.springframework.stereotype.Service;
-import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.*;
+import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.CommentModel;
+import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.CommitModel;
+import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.MergeRequestModel;
+import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.MergeRequestShortModel;
+import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.PipelineBuildModel;
+import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.PipelineModel;
+import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.ProjectModel;
+import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.RepositoryModel;
+import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.RunnerModel;
+import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.UserModel;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.enumeration.CommentTarget;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.enumeration.PipelineSource;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.enumeration.PipelineStatus;
-import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.*;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.AuthorDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.BuildDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.CommentDataDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.CommitDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.CommitFullDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.MergeRequestDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.MergeRequestDataDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.MergeRequestShortDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.PipelineDataDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.ProjectDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.RepositoryDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.RunnerDTO;
+import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.UserDTO;
 import pro.sisit.utils.webhookproxy.util.NumberUtil;
 
 @Service
 public class GitlabRestConverterImpl implements GitlabRestConverter {
+
     @Override
     public UserModel toModel(UserDTO dto) {
         UserModel model = new UserModel();
@@ -139,7 +162,7 @@ public class GitlabRestConverterImpl implements GitlabRestConverter {
         model.setExternalId(NumberUtil.of(dto.id));
         model.setStatus(PipelineStatus.resolveSoft(dto.status).orElse(null));
         model.setStages(dto.stages);
-        model.setDuration(Long.valueOf(dto.duration));
+        model.setDuration(Optional.ofNullable(dto.duration).map(Long::valueOf).orElse(0L));
         model.setSource(PipelineSource.resolveSoft(dto.source).orElse(null));
         model.setRef(dto.ref);
         return model;

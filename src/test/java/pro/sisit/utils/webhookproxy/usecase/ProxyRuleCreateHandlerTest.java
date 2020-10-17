@@ -78,6 +78,6 @@ public class ProxyRuleCreateHandlerTest {
         Assertions.assertNotNull(channel);
 
         List<ProxyRuleFilter> filters = proxyRuleFilterRepository.findAllByRuleId(newProxyRuleId);
-        Assertions.assertEquals(6, filters.size());
+        Assertions.assertEquals(7, filters.size());
     }
 }

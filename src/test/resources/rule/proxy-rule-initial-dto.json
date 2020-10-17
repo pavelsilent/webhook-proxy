@@ -19,16 +19,24 @@
       "property_value": "CANCELED"
     },
     {
+      "type": "FIELD_VALUE",
+      "class_name": "pro.sisit.utils.webhookproxy.domain.model.gitlab.event.MergeRequestEvent",
+      "property_path": "mergeRequest.state",
+      "property_value": "OPENED"
+    },
+    {
+      "type": "FIELD_VALUE",
+      "class_name": "pro.sisit.utils.webhookproxy.domain.model.gitlab.event.MergeRequestEvent",
+      "property_path": "mergeRequest.state",
+      "property_value": "MERGED"
+    },
+    {
       "type": "CLASS_NAME",
       "class_name": "pro.sisit.utils.webhookproxy.domain.model.gitlab.event.CommitCommentEvent"
     },
     {
       "type": "CLASS_NAME",
       "class_name": "pro.sisit.utils.webhookproxy.domain.model.gitlab.event.MergeRequestCommentEvent"
-    },
-    {
-      "type": "CLASS_NAME",
-      "class_name": "pro.sisit.utils.webhookproxy.domain.model.gitlab.event.MergeRequestEvent"
     },
     {
       "type": "CLASS_NAME",

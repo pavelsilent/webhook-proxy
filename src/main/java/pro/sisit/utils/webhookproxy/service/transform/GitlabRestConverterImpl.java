@@ -38,7 +38,7 @@ public class GitlabRestConverterImpl implements GitlabRestConverter {
         if (dto == null) {
             return null;
         }
-        
+
         UserModel model = new UserModel();
         model.setExternalId(NumberUtil.of(dto.id));
         model.setName(dto.name);

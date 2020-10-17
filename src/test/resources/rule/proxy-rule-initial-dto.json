@@ -1,0 +1,39 @@
+{
+  "source": "GITLAB",
+  "target": {
+    "type": "TELEGRAM_CHANNEL",
+    "bot_token": "1175490708:AAHTrfqu5fyn6o6tDUoiPu2MwFg4raHY2EY",
+    "channel_id": "468654555"
+  },
+  "filters": [
+    {
+      "type": "FIELD_VALUE",
+      "class_name": "pro.sisit.utils.webhookproxy.domain.model.gitlab.event.PipelineEvent",
+      "property_path": "pipeline.status",
+      "property_value": "FAILED"
+    },
+    {
+      "type": "FIELD_VALUE",
+      "class_name": "pro.sisit.utils.webhookproxy.domain.model.gitlab.event.PipelineEvent",
+      "property_path": "pipeline.status",
+      "property_value": "CANCELED"
+    },
+    {
+      "type": "CLASS_NAME",
+      "class_name": "pro.sisit.utils.webhookproxy.domain.model.gitlab.event.CommitCommentEvent"
+    },
+    {
+      "type": "CLASS_NAME",
+      "class_name": "pro.sisit.utils.webhookproxy.domain.model.gitlab.event.MergeRequestCommentEvent"
+    },
+    {
+      "type": "CLASS_NAME",
+      "class_name": "pro.sisit.utils.webhookproxy.domain.model.gitlab.event.MergeRequestEvent"
+    },
+    {
+      "type": "CLASS_NAME",
+      "class_name": "pro.sisit.utils.webhookproxy.domain.model.gitlab.event.PushEvent"
+    }
+  ]
+}
+

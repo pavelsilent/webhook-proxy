@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ProxyRuleFilterRepository extends CrudRepository<ProxyRuleFilter, Long> {
 
-    List<ProxyRuleFilter> findAllByRuleId(Long sourceId);
+    List<ProxyRuleFilter> findAllByRuleId(Long ruleId);
 
     List<ProxyRuleFilter> findAllByRuleSource(Source source);
 }

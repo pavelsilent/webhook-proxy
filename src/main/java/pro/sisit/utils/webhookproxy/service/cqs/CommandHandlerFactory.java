@@ -2,11 +2,13 @@ package pro.sisit.utils.webhookproxy.service.cqs;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pro.sisit.utils.webhookproxy.domain.cqs.Command;
 
 import java.util.List;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class CommandHandlerFactory {
 

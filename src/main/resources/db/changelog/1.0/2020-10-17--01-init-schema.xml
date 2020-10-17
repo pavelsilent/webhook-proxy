@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.2.xsd">
+
+  <changeSet author="p.brichev" id="2020-10-17--01-init-schema.001">
+    <createTable schemaName="public" tableName="telegram_bot">
+      <column name="id" type="BIGINT" autoIncrement="true">
+        <constraints primaryKey="true" primaryKeyName="telegram_bot_pkey"/>
+      </column>
+      <column name="token" type="VARCHAR(1000)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="p.brichev" id="2020-10-17--01-init-schema.002">
+    <createTable schemaName="public" tableName="target">
+      <column name="id" type="BIGINT" autoIncrement="true">
+        <constraints primaryKey="true" primaryKeyName="target_pkey"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="p.brichev" id="2020-10-17--01-init-schema.003">
+    <createTable schemaName="public" tableName="target_telegram_channel">
+      <column name="id" type="BIGINT" autoIncrement="true">
+        <constraints primaryKey="true" primaryKeyName="target_telegram_channel_pkey"/>
+      </column>
+      <column name="channel_id" type="VARCHAR(1000)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="bot_id" type="BIGINT">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="p.brichev" id="2020-10-17--01-init-schema.004">
+    <addForeignKeyConstraint baseTableName="target_telegram_channel" baseColumnNames="id"
+      referencedTableName="target" referencedColumnNames="id"
+      constraintName="fk_target_telegram_channel_target"
+      deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"/>
+  </changeSet>
+
+  <changeSet author="p.brichev" id="2020-10-17--01-init-schema.005">
+    <addForeignKeyConstraint baseTableName="target_telegram_channel" baseColumnNames="bot_id"
+      referencedTableName="telegram_bot" referencedColumnNames="id"
+      constraintName="fk_target_telegram_channel_telegram_bot"
+      deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"/>
+  </changeSet>
+
+  <changeSet author="p.brichev" id="2020-10-17--01-init-schema.006">
+    <createTable schemaName="public" tableName="proxy_rule">
+      <column name="id" type="BIGINT" autoIncrement="true">
+        <constraints primaryKey="true" primaryKeyName="proxy_rule_pkey"/>
+      </column>
+      <column name="source" type="VARCHAR(1000)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="target_id" type="BIGINT">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="p.brichev" id="2020-10-17--01-init-schema.007">
+    <addForeignKeyConstraint baseTableName="proxy_rule" baseColumnNames="target_id"
+      referencedTableName="target" referencedColumnNames="id"
+      constraintName="fk_proxy_rule_target"
+      deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"/>
+  </changeSet>
+
+  <changeSet author="p.brichev" id="2020-10-17--01-init-schema.008">
+    <createTable schemaName="public" tableName="filter">
+      <column name="id" type="BIGINT" autoIncrement="true">
+        <constraints primaryKey="true" primaryKeyName="filter_pkey"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="p.brichev" id="2020-10-17--01-init-schema.010">
+    <createTable schemaName="public" tableName="filter_class_name_filter">
+      <column name="id" type="BIGINT" autoIncrement="true">
+        <constraints primaryKey="true" primaryKeyName="filter_class_name_filter_pkey"/>
+      </column>
+      <column name="class_name" type="VARCHAR(1000)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="p.brichev" id="2020-10-17--01-init-schema.011">
+    <createTable schemaName="public" tableName="filter_field_value_filter">
+      <column name="id" type="BIGINT" autoIncrement="true">
+        <constraints primaryKey="true" primaryKeyName="filter_field_value_filter_pkey"/>
+      </column>
+      <column name="class_name" type="VARCHAR(1000)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="property_path" type="VARCHAR(1000)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="property_value" type="VARCHAR(1000)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="p.brichev" id="2020-10-17--01-init-schema.012">
+    <createTable schemaName="public" tableName="filter_system_filter">
+      <column name="id" type="BIGINT" autoIncrement="true">
+        <constraints primaryKey="true" primaryKeyName="filter_system_filter_pkey"/>
+      </column>
+      <column name="type" type="VARCHAR(1000)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="p.brichev" id="2020-10-17--01-init-schema.013">
+    <addForeignKeyConstraint baseTableName="filter_class_name_filter" baseColumnNames="id"
+      referencedTableName="filter" referencedColumnNames="id"
+      constraintName="fk_filter_class_name_filter_filter"
+      deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"/>
+  </changeSet>
+
+  <changeSet author="p.brichev" id="2020-10-17--01-init-schema.014">
+    <addForeignKeyConstraint baseTableName="filter_field_value_filter" baseColumnNames="id"
+      referencedTableName="filter" referencedColumnNames="id"
+      constraintName="fk_filter_field_value_filter_filter"
+      deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"/>
+  </changeSet>
+
+  <changeSet author="p.brichev" id="2020-10-17--01-init-schema.015">
+    <addForeignKeyConstraint baseTableName="filter_system_filter" baseColumnNames="id"
+      referencedTableName="filter" referencedColumnNames="id"
+      constraintName="fk_filter_system_filter_filter"
+      deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION"/>
+  </changeSet>
+
+  <changeSet author="p.brichev" id="2020-10-17--01-init-schema.016">
+    <createTable schemaName="public" tableName="proxy_rule_filter">
+      <column name="id" type="BIGINT" autoIncrement="true">
+        <constraints primaryKey="true" primaryKeyName="proxy_rule_filter_pkey"/>
+      </column>
+      <column name="rule_id" type="BIGINT">
+        <constraints nullable="false"/>
+      </column>
+      <column name="filter_id" type="BIGINT">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="p.brichev" id="2020-10-17--01-init-schema.017">
+    <addForeignKeyConstraint baseTableName="proxy_rule_filter" baseColumnNames="rule_id"
+      referencedTableName="proxy_rule" referencedColumnNames="id"
+      constraintName="fk_proxy_rule_filter_rule"
+      deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"/>
+  </changeSet>
+
+  <changeSet author="p.brichev" id="2020-10-17--01-init-schema.018">
+    <addForeignKeyConstraint baseTableName="proxy_rule_filter" baseColumnNames="filter_id"
+      referencedTableName="filter" referencedColumnNames="id"
+      constraintName="fk_proxy_rule_filter_filter"
+      deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"/>
+  </changeSet>
+
+</databaseChangeLog>

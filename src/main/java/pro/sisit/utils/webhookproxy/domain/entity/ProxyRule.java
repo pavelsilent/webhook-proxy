@@ -13,7 +13,7 @@ public class ProxyRule {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "source", nullable = false)
+    @Column(name = "source", nullable = false, length = 1000)
     @Enumerated(EnumType.STRING)
     private Source source;
 

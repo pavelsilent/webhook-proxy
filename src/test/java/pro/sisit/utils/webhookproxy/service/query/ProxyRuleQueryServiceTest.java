@@ -10,6 +10,7 @@ import org.junit.jupiter.params.provider.ArgumentsSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.env.Environment;
+import pro.sisit.utils.webhookproxy.WebHookProxyTestApplication;
 import pro.sisit.utils.webhookproxy.data.*;
 import pro.sisit.utils.webhookproxy.domain.Event;
 import pro.sisit.utils.webhookproxy.domain.Source;
@@ -31,7 +32,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
-@SpringBootTest
+@SpringBootTest(classes = WebHookProxyTestApplication.class)
 @Transactional
 public class ProxyRuleQueryServiceTest {
 

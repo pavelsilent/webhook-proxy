@@ -12,6 +12,6 @@ public class TelegramBot {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "token", nullable = false)
+    @Column(name = "token", nullable = false, length = 1000)
     private String token;
 }

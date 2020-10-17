@@ -11,6 +11,6 @@ import javax.persistence.*;
 @Entity(name = "filter_class_name_filter")
 public class ClassNameFilter extends Filter {
 
-    @Column(name = "class_name", nullable = false)
+    @Column(name = "class_name", nullable = false, length = 1000)
     private String className;
 }

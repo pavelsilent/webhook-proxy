@@ -16,6 +16,6 @@ import javax.persistence.Enumerated;
 public class SystemFilter extends Filter {
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "type", nullable = false)
+    @Column(name = "type", nullable = false, length = 1000)
     private SystemFilterEnum type;
 }

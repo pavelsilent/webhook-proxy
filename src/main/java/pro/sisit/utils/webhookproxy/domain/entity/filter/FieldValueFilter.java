@@ -12,12 +12,12 @@ import javax.persistence.Entity;
 @Entity(name = "filter_field_value_filter")
 public class FieldValueFilter extends Filter {
 
-    @Column(name = "class_name", nullable = false)
+    @Column(name = "class_name", nullable = false, length = 1000)
     private String className;
 
-    @Column(name = "property_path", nullable = false)
+    @Column(name = "property_path", nullable = false, length = 1000)
     private String propertyPath;
 
-    @Column(name = "property_value", nullable = false)
+    @Column(name = "property_value", nullable = false, length = 1000)
     private String propertyValue;
 }

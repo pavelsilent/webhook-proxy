@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.core.env.Environment;
+import pro.sisit.utils.webhookproxy.WebHookProxyTestApplication;
 import pro.sisit.utils.webhookproxy.domain.entity.TelegramBot;
 import pro.sisit.utils.webhookproxy.domain.entity.target.TelegramChannel;
 import pro.sisit.utils.webhookproxy.rest.dto.gitlab.GitLabObjectKind;
@@ -32,7 +33,7 @@ import java.util.stream.Stream;
 
 import static org.mockito.ArgumentMatchers.any;
 
-@SpringBootTest
+@SpringBootTest(classes = WebHookProxyTestApplication.class)
 public class ReceiveEventHandlerTest {
 
     @Autowired

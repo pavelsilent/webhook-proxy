@@ -12,6 +12,7 @@ import org.junit.jupiter.params.provider.ArgumentsSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.env.Environment;
+import pro.sisit.utils.webhookproxy.WebHookProxyTestApplication;
 import pro.sisit.utils.webhookproxy.domain.Event;
 import pro.sisit.utils.webhookproxy.domain.entity.TelegramBot;
 import pro.sisit.utils.webhookproxy.domain.entity.target.TelegramChannel;
@@ -29,7 +30,7 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-@SpringBootTest
+@SpringBootTest(classes = WebHookProxyTestApplication.class)
 class TelegramSenderTests {
 
     @Autowired

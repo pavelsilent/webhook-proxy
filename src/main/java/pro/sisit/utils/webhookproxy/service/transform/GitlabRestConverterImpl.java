@@ -35,6 +35,10 @@ public class GitlabRestConverterImpl implements GitlabRestConverter {
 
     @Override
     public UserModel toModel(UserDTO dto) {
+        if (dto == null) {
+            return null;
+        }
+        
         UserModel model = new UserModel();
         model.setExternalId(NumberUtil.of(dto.id));
         model.setName(dto.name);
@@ -45,8 +49,11 @@ public class GitlabRestConverterImpl implements GitlabRestConverter {
         return model;
     }
 
-
     public UserModel toModel(AuthorDTO dto) {
+        if (dto == null) {
+            return null;
+        }
+
         UserModel model = new UserModel();
         model.setName(dto.name);
         model.setEmail(dto.email);
@@ -55,6 +62,10 @@ public class GitlabRestConverterImpl implements GitlabRestConverter {
 
     @Override
     public ProjectModel toModel(ProjectDTO dto) {
+        if (dto == null) {
+            return null;
+        }
+
         ProjectModel model = new ProjectModel();
         model.setExternalId(NumberUtil.of(dto.id));
         model.setName(dto.name);
@@ -65,6 +76,10 @@ public class GitlabRestConverterImpl implements GitlabRestConverter {
 
     @Override
     public RepositoryModel toModel(RepositoryDTO dto) {
+        if (dto == null) {
+            return null;
+        }
+
         RepositoryModel model = new RepositoryModel();
         model.setName(dto.name);
         model.setUrl(dto.homepage);
@@ -73,6 +88,10 @@ public class GitlabRestConverterImpl implements GitlabRestConverter {
 
     @Override
     public MergeRequestModel toModel(MergeRequestDataDTO dto) {
+        if (dto == null) {
+            return null;
+        }
+
         MergeRequestModel model = new MergeRequestModel();
         model.setExternalId(NumberUtil.of(dto.id));
         model.setTitle(dto.title);
@@ -93,6 +112,10 @@ public class GitlabRestConverterImpl implements GitlabRestConverter {
 
     @Override
     public MergeRequestModel toModel(MergeRequestDTO dto) {
+        if (dto == null) {
+            return null;
+        }
+
         MergeRequestModel model = new MergeRequestModel();
         model.setExternalId(NumberUtil.of(dto.id));
         model.setTitle(dto.title);
@@ -113,6 +136,10 @@ public class GitlabRestConverterImpl implements GitlabRestConverter {
 
     @Override
     public MergeRequestShortModel toModel(MergeRequestShortDTO dto) {
+        if (dto == null) {
+            return null;
+        }
+
         MergeRequestShortModel model = new MergeRequestShortModel();
         model.setExternalId(NumberUtil.of(dto.id));
         model.setTitle(dto.title);
@@ -126,6 +153,10 @@ public class GitlabRestConverterImpl implements GitlabRestConverter {
 
     @Override
     public CommentModel toModel(CommentDataDTO dto) {
+        if (dto == null) {
+            return null;
+        }
+
         CommentModel model = new CommentModel();
         model.setExternalId(NumberUtil.of(dto.id));
         model.setTarget(CommentTarget.resolve(dto.noteableType));
@@ -138,6 +169,10 @@ public class GitlabRestConverterImpl implements GitlabRestConverter {
 
     @Override
     public CommitModel toModel(CommitDTO dto) {
+        if (dto == null) {
+            return null;
+        }
+
         CommitModel model = new CommitModel();
         model.setExternalId(dto.id);
         model.setMessage(dto.message);
@@ -148,6 +183,10 @@ public class GitlabRestConverterImpl implements GitlabRestConverter {
 
     @Override
     public CommitModel toModel(CommitFullDTO dto) {
+        if (dto == null) {
+            return null;
+        }
+
         CommitModel model = new CommitModel();
         model.setExternalId(dto.id);
         model.setMessage(dto.message);
@@ -158,6 +197,10 @@ public class GitlabRestConverterImpl implements GitlabRestConverter {
 
     @Override
     public PipelineModel toModel(PipelineDataDTO dto) {
+        if (dto == null) {
+            return null;
+        }
+
         PipelineModel model = new PipelineModel();
         model.setExternalId(NumberUtil.of(dto.id));
         model.setStatus(PipelineStatus.resolveSoft(dto.status).orElse(null));
@@ -170,6 +213,10 @@ public class GitlabRestConverterImpl implements GitlabRestConverter {
 
     @Override
     public PipelineBuildModel toModel(BuildDTO dto) {
+        if (dto == null) {
+            return null;
+        }
+
         PipelineBuildModel model = new PipelineBuildModel();
         model.setExternalId(NumberUtil.of(dto.id));
         model.setName(dto.name);

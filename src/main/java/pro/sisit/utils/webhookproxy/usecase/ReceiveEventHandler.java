@@ -30,9 +30,11 @@ public class ReceiveEventHandler implements CommandHandler<ReceiveEventCommand, 
         }
 
         Message message = messageBuilder.toMessage(command.getWebhookEvent());
+        System.out.println("Detect targets...");
         return Optional.ofNullable(
                 queryService.findTargets(command.getWebhookEvent())
                         .stream()
+                            .peek(target -> System.out.println("target: " + target))
                         .map(target -> senderService.send(target, message))
                         .collect(Collectors.toList()));
     }

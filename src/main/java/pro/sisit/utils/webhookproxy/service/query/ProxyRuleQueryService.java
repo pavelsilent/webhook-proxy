@@ -1,5 +1,10 @@
 package pro.sisit.utils.webhookproxy.service.query;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -16,12 +21,6 @@ import pro.sisit.utils.webhookproxy.domain.enumeration.SystemFilterEnum;
 import pro.sisit.utils.webhookproxy.util.HibernateUtil;
 import pro.sisit.utils.webhookproxy.util.ObjectUtil;
 
-import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
 @Service
 @Slf4j
 @Transactional
@@ -34,19 +33,26 @@ public class ProxyRuleQueryService {
 
     public List<Target> findTargets(Event event) {
         return Optional.ofNullable(event)
-                .map(data -> proxyRuleRepository.findAllBySource(event.getSource())
-                        .stream()
-                        .filter(rule -> canProxy(rule, event))
-                        .map(ProxyRule::getTarget)
-                        .collect(Collectors.toList()))
-                .orElseGet(ArrayList::new);
-
+                       .map(data -> proxyRuleRepository
+                           .findAllBySource(event.getSource())
+                           .stream()
+                           .peek(rule -> System.out.println(
+                               String.format(
+                                   "Found rule with id '%s' on source '%s' to target '%s'",
+                                   rule.getId(), rule.getSource(), rule.getTarget())))
+                           .filter(rule -> canProxy(rule, event))
+                           .peek(rule ->
+                               String.format("Founded rule with id '%s' satisfy event. ",
+                                   rule.getId()))
+                           .map(ProxyRule::getTarget)
+                           .collect(Collectors.toList()))
+                       .orElseGet(ArrayList::new);
     }
 
     public boolean canProxy(ProxyRule rule, Event event) {
         return proxyRuleFilterRepository.findAllByRuleId(rule.getId()).stream()
-                .anyMatch(proxyRuleFilter ->
-                        isEventSatisfy(proxyRuleFilter.getFilter(), event));
+                                        .anyMatch(proxyRuleFilter ->
+                                            isEventSatisfy(proxyRuleFilter.getFilter(), event));
     }
 
     public boolean isEventSatisfy(Filter filter, Event event) {
@@ -70,10 +76,10 @@ public class ProxyRuleQueryService {
             ClassNameFilter classNameFilter = (ClassNameFilter) unproxyFilter;
             String className = classNameFilter.getClassName();
             return Optional.of(event)
-                    .map(Event::getClass)
-                    .map(Class::getCanonicalName)
-                    .map(className::equals)
-                    .orElse(false);
+                           .map(Event::getClass)
+                           .map(Class::getCanonicalName)
+                           .map(className::equals)
+                           .orElse(false);
         } else if (unproxyFilter instanceof FieldValueFilter) {
             FieldValueFilter fieldValueFilter = (FieldValueFilter) unproxyFilter;
             String className = fieldValueFilter.getClassName();

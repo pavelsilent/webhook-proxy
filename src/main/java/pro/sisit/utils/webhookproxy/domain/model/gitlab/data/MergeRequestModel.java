@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pro.sisit.utils.webhookproxy.domain.model.gitlab.enumeration.MergeRequestState;
 import pro.sisit.utils.webhookproxy.util.StringUtil;
 
 @Data
@@ -32,7 +33,7 @@ public class MergeRequestModel {
 
     private Long externalAssigneeId;
 
-    private String state;
+    private MergeRequestState state;
 
     private String mergeStatus;
 

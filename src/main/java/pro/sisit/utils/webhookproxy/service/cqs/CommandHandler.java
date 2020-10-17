@@ -6,5 +6,9 @@ public interface CommandHandler<T extends Command, R> {
 
     R process(T command);
 
-    boolean supports(T command);
+    default boolean supports(Class commandClass) {
+        return getCommandClass().equals(commandClass);
+    }
+
+    Class getCommandClass();
 }

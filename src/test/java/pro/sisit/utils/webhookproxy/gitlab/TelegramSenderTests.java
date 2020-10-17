@@ -72,8 +72,6 @@ class TelegramSenderTests {
         Message message = messageBuilder.toMessage(event);
         SendResponse response = sender.send(channel, message);
 
-        System.out.println(response);
-
         Assertions.assertNotNull(response);
         Assertions.assertNotNull(response.message());
         Assertions.assertNotNull(response.message().messageId());

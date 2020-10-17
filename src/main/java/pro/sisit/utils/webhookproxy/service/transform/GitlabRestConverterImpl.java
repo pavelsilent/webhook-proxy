@@ -13,6 +13,7 @@ import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.RepositoryModel;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.RunnerModel;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.UserModel;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.enumeration.CommentTarget;
+import pro.sisit.utils.webhookproxy.domain.model.gitlab.enumeration.MergeRequestState;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.enumeration.PipelineSource;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.enumeration.PipelineStatus;
 import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.data.AuthorDTO;
@@ -103,7 +104,7 @@ public class GitlabRestConverterImpl implements GitlabRestConverter {
         model.setTargetBranch(dto.targetBranch);
         model.setExternalAuthorId(NumberUtil.of(dto.authorId));
         model.setExternalAssigneeId(NumberUtil.of(dto.assigneeId));
-        model.setState(dto.state);
+        model.setState(MergeRequestState.resolveSoft(dto.state).orElse(null));
         model.setMergeStatus(dto.mergeStatus);
         model.setWorkInProgress(dto.workInProgress);
 
@@ -127,7 +128,7 @@ public class GitlabRestConverterImpl implements GitlabRestConverter {
         model.setTargetBranch(dto.targetBranch);
         model.setExternalAuthorId(NumberUtil.of(dto.authorId));
         model.setExternalAssigneeId(NumberUtil.of(dto.assigneeId));
-        model.setState(dto.state);
+        model.setState(MergeRequestState.resolveSoft(dto.state).orElse(null));
         model.setMergeStatus(dto.mergeStatus);
         model.setWorkInProgress(dto.workInProgress);
 
@@ -146,7 +147,7 @@ public class GitlabRestConverterImpl implements GitlabRestConverter {
         model.setUrl(dto.url);
         model.setSourceBranch(dto.sourceBranch);
         model.setTargetBranch(dto.targetBranch);
-        model.setState(dto.state);
+        model.setState(MergeRequestState.resolveSoft(dto.state).orElse(null));
         model.setMergeStatus(dto.mergeStatus);
         return model;
     }

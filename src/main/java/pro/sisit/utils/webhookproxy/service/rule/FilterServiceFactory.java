@@ -22,5 +22,9 @@ public class FilterServiceFactory {
                 new RuntimeException("Not support filter " + model.getClass().getSimpleName()));
     }
 
+    public void deleteAll() {
+        services.forEach(FilterService::deleteAll);
+    }
+
 
 }

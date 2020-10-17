@@ -28,7 +28,7 @@ public class GitLabMergeRequestEventTelegramMessageBuilder implements TelegramMe
                                 "from branch %s to branch %s.",
                         messageFormatter.link(project.getUrl(), project.getFullName()),
                         messageFormatter.bold(user.getName()),
-                        merge.getState(),
+                        messageFormatter.underline(merge.getState().getCode()),
                         messageFormatter.link(merge.getUrl(), merge.getShortMessage()),
                         messageFormatter.bold(
                                 messageFormatter.underline(merge.getSourceBranch())),

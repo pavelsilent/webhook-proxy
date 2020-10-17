@@ -10,4 +10,5 @@ public interface FilterService<TModel extends FilterModel> {
 
     boolean supports(Class modelClass);
 
+     void deleteAll();
 }

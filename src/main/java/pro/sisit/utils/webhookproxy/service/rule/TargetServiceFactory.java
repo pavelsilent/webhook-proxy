@@ -23,4 +23,7 @@ public class TargetServiceFactory {
     }
 
 
+    public void deleteAll() {
+        services.forEach(TargetService::deleteAll);
+    }
 }

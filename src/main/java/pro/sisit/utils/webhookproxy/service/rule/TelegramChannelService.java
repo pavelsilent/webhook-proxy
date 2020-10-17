@@ -38,4 +38,10 @@ public class TelegramChannelService implements TargetService<TelegramChannelTarg
     public boolean supports(Class modelClass) {
         return TelegramChannelTargetModel.class.equals(modelClass);
     }
+
+    @Override
+    public void deleteAll() {
+        repository.deleteAll();
+        botRepository.deleteAll();
+    }
 }

@@ -9,4 +9,6 @@ public interface TargetService<TModel extends TargetModel> {
 
     boolean supports(Class modelClass);
 
+    void deleteAll();
+
 }

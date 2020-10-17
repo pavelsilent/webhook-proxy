@@ -8,5 +8,7 @@ import java.util.List;
 
 public interface ProxyRuleRepository extends CrudRepository<ProxyRule, Long> {
 
+    List<ProxyRule> findAll();
+
     List<ProxyRule> findAllBySource(Source source);
 }

@@ -27,4 +27,9 @@ public class ClassNameFilterService implements FilterService<ClassNameFilterMode
     public boolean supports(Class modelClass) {
         return ClassNameFilterModel.class.equals(modelClass);
     }
+
+    @Override
+    public void deleteAll() {
+        repository.deleteAll();
+    }
 }

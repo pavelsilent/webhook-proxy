@@ -30,4 +30,9 @@ public class FieldValueFilterService implements FilterService<FieldValueFilterMo
     public boolean supports(Class modelClass) {
         return FieldValueFilterModel.class.equals(modelClass);
     }
+
+    @Override
+    public void deleteAll() {
+        repository.deleteAll();
+    }
 }

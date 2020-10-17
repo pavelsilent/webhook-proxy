@@ -1,6 +1,8 @@
 package pro.sisit.utils.webhookproxy.service.rule;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pro.sisit.utils.webhookproxy.data.ProxyRuleFilterRepository;
@@ -43,4 +45,37 @@ public class ProxyRuleService {
 
         return proxyRule;
     }
+
+    public void delete(Long proxyRuleId) {
+        ProxyRule proxyRule = getById(proxyRuleId);
+
+        proxyRuleFilterRepository.deleteAllByRule(proxyRule);
+        proxyRuleRepository.delete(proxyRule);
+    }
+
+    public ProxyRule getById(Long id) {
+        return proxyRuleRepository.findById(id)
+                                  .orElseThrow(() -> new RuntimeException(String.valueOf(id)));
+    }
+
+    public void deleteAllData(boolean onlyRules) {
+        deleteAllRules();
+        if (onlyRules) {
+            return;
+        }
+
+        targetService.deleteAll();
+        filterService.deleteAll();
+    }
+
+    public void deleteAllRules() {
+        List<Long> rules = proxyRuleRepository.findAll()
+                                              .stream()
+                                              .map(ProxyRule::getId)
+                                              .collect(Collectors.toList());
+
+        rules.forEach(this::delete);
+    }
+
+
 }

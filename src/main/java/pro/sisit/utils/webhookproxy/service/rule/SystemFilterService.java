@@ -27,4 +27,9 @@ public class SystemFilterService implements FilterService<SystemFilterModel> {
     public boolean supports(Class modelClass) {
         return SystemFilterModel.class.equals(modelClass);
     }
+
+    @Override
+    public void deleteAll() {
+        repository.deleteAll();
+    }
 }

@@ -15,14 +15,15 @@ public class SenderService {
 
     @SuppressWarnings("unchecked")
     public <T extends Target, R> R send(T target, Message message) {
+        T unProxyTarget = HibernateUtil.unProxyObject(target);
         return (R) senders.stream()
                           .map(HibernateUtil::unProxyObject)
-                          .filter(sender -> sender.supports(target))
+                          .filter(sender -> sender.supports(unProxyTarget))
                           .findFirst()
-                          .map(sender -> sender.send(target, message))
+                          .map(sender -> sender.send(unProxyTarget, message))
                           .orElseThrow(() -> new RuntimeException(
                               String.format("Not found sender for target '%s'.",
-                                  target.getClass().getSimpleName())));
+                                  unProxyTarget.getClass().getSimpleName())));
     }
 
 

@@ -19,7 +19,7 @@ public class ProxyRuleCreateHandler implements CommandHandler<ProxyRuleCreateCom
     }
 
     @Override
-    public boolean supports(ProxyRuleCreateCommand command) {
-        return ProxyRuleCreateCommand.class.equals(command.getClass());
+    public Class getCommandClass() {
+        return ProxyRuleCreateCommand.class;
     }
 }

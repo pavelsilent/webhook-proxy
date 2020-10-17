@@ -1,0 +1,176 @@
+{
+  "object_kind": "pipeline",
+  "object_attributes": {
+    "id": 33656,
+    "ref": "master",
+    "tag": false,
+    "sha": "405200ed604cb9bb40dd0435ae443f74ea4c2a9a",
+    "before_sha": "0000000000000000000000000000000000000000",
+    "source": "push",
+    "status": "canceled",
+    "stages": [
+      "build",
+      "test"
+    ],
+    "created_at": "2018-10-19T06:48:50.957Z",
+    "finished_at": "2018-10-19T07:34:30.147Z",
+    "variables": []
+  },
+  "user": {
+    "name": "Денис Кернер",
+    "username": "d.kerner.sis",
+    "avatar_url": "https://www.gravatar.com/avatar/1fbd657f8ce6feba83dc8cc9c833090d?s=80&d=identicon",
+    "email": "d.kerner.sis@gmail.com"
+  },
+  "project": {
+    "id": 78,
+    "name": "jetalon",
+    "description": "",
+    "web_url": "http://192.168.5.156.nip.io/etalon/jetalon",
+    "avatar_url": "http://192.168.5.156.nip.io/uploads/-/system/project/avatar/78/photo_2020-01-24_16-05-47.jpg",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon.git",
+    "namespace": "etalon",
+    "visibility_level": 0,
+    "path_with_namespace": "etalon/jetalon",
+    "default_branch": "master"
+  },
+  "commit": {
+    "id": "405200ed604cb9bb40dd0435ae443f74ea4c2a9a",
+    "message": "Initial commit",
+    "timestamp": "2018-10-19T06:48:49+00:00",
+    "url": "http://192.168.5.156.nip.io/etalon/jetalon/-/commit/405200ed604cb9bb40dd0435ae443f74ea4c2a9a",
+    "author": {
+      "name": "Денис Кернер",
+      "email": "d.kerner.sis@gmail.com"
+    }
+  },
+  "builds": [
+    {
+      "id": 37034,
+      "stage": "build",
+      "name": "build",
+      "status": "canceled",
+      "created_at": "2018-10-19T06:48:50.972Z",
+      "finished_at": "2018-10-19T07:34:28.960Z",
+      "when": "on_success",
+      "manual": false,
+      "allow_failure": false,
+      "user": {
+        "name": "Денис Кернер",
+        "username": "d.kerner.sis",
+        "avatar_url": "https://www.gravatar.com/avatar/1fbd657f8ce6feba83dc8cc9c833090d?s=80&d=identicon",
+        "email": "d.kerner.sis@gmail.com"
+      },
+      "artifacts_file": {}
+    },
+    {
+      "id": 37035,
+      "stage": "test",
+      "name": "test",
+      "status": "canceled",
+      "created_at": "2018-10-19T06:48:51.121Z",
+      "finished_at": "2018-10-19T07:34:29.063Z",
+      "when": "on_success",
+      "manual": false,
+      "allow_failure": false,
+      "user": {
+        "name": "Денис Кернер",
+        "username": "d.kerner.sis",
+        "avatar_url": "https://www.gravatar.com/avatar/1fbd657f8ce6feba83dc8cc9c833090d?s=80&d=identicon",
+        "email": "d.kerner.sis@gmail.com"
+      },
+      "artifacts_file": {}
+    },
+    {
+      "id": 37036,
+      "stage": "test",
+      "name": "code_quality",
+      "status": "canceled",
+      "created_at": "2018-10-19T06:48:51.162Z",
+      "finished_at": "2018-10-19T07:34:29.181Z",
+      "when": "on_success",
+      "manual": false,
+      "allow_failure": true,
+      "user": {
+        "name": "Денис Кернер",
+        "username": "d.kerner.sis",
+        "avatar_url": "https://www.gravatar.com/avatar/1fbd657f8ce6feba83dc8cc9c833090d?s=80&d=identicon",
+        "email": "d.kerner.sis@gmail.com"
+      },
+      "artifacts_file": {}
+    },
+    {
+      "id": 37037,
+      "stage": "test",
+      "name": "license_management",
+      "status": "canceled",
+      "created_at": "2018-10-19T06:48:51.203Z",
+      "finished_at": "2018-10-19T07:34:29.243Z",
+      "when": "on_success",
+      "manual": false,
+      "allow_failure": true,
+      "user": {
+        "name": "Денис Кернер",
+        "username": "d.kerner.sis",
+        "avatar_url": "https://www.gravatar.com/avatar/1fbd657f8ce6feba83dc8cc9c833090d?s=80&d=identicon",
+        "email": "d.kerner.sis@gmail.com"
+      },
+      "artifacts_file": {}
+    },
+    {
+      "id": 37038,
+      "stage": "test",
+      "name": "sast",
+      "status": "canceled",
+      "created_at": "2018-10-19T06:48:51.344Z",
+      "finished_at": "2018-10-19T07:34:29.265Z",
+      "when": "on_success",
+      "manual": false,
+      "allow_failure": true,
+      "user": {
+        "name": "Денис Кернер",
+        "username": "d.kerner.sis",
+        "avatar_url": "https://www.gravatar.com/avatar/1fbd657f8ce6feba83dc8cc9c833090d?s=80&d=identicon",
+        "email": "d.kerner.sis@gmail.com"
+      },
+      "artifacts_file": {}
+    },
+    {
+      "id": 37039,
+      "stage": "test",
+      "name": "dependency_scanning",
+      "status": "canceled",
+      "created_at": "2018-10-19T06:48:51.419Z",
+      "finished_at": "2018-10-19T07:34:29.306Z",
+      "when": "on_success",
+      "manual": false,
+      "allow_failure": true,
+      "user": {
+        "name": "Денис Кернер",
+        "username": "d.kerner.sis",
+        "avatar_url": "https://www.gravatar.com/avatar/1fbd657f8ce6feba83dc8cc9c833090d?s=80&d=identicon",
+        "email": "d.kerner.sis@gmail.com"
+      },
+      "artifacts_file": {}
+    },
+    {
+      "id": 37040,
+      "stage": "test",
+      "name": "container_scanning",
+      "status": "canceled",
+      "created_at": "2018-10-19T06:48:51.485Z",
+      "finished_at": "2018-10-19T07:34:29.331Z",
+      "when": "on_success",
+      "manual": false,
+      "allow_failure": true,
+      "user": {
+        "name": "Денис Кернер",
+        "username": "d.kerner.sis",
+        "avatar_url": "https://www.gravatar.com/avatar/1fbd657f8ce6feba83dc8cc9c833090d?s=80&d=identicon",
+        "email": "d.kerner.sis@gmail.com"
+      },
+      "artifacts_file": {}
+    }
+  ]
+}

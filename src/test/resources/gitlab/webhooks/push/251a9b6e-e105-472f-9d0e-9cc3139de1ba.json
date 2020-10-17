@@ -1,0 +1,62 @@
+{
+  "object_kind": "push",
+  "object_kind": "push",
+  "before": "0000000000000000000000000000000000000000",
+  "after": "6486f173777bf35dbc528bd74d91a7e13b611325",
+  "ref": "refs/heads/JET-1666",
+  "checkout_sha": "6486f173777bf35dbc528bd74d91a7e13b611325",
+  "user_id": 59,
+  "user_name": "Дмитрий Хицунов",
+  "user_username": "d.hitsunov.sis",
+  "user_email": "",
+  "user_avatar": "https://www.gravatar.com/avatar/99060b2b53e24c6d7af0435e4f02b4dd?s=80&d=identicon",
+  "project_id": 78,
+  "project": {
+    "id": 78,
+    "name": "jetalon",
+    "description": "",
+    "web_url": "http://192.168.5.156.nip.io/etalon/jetalon",
+    "avatar_url": "http://192.168.5.156.nip.io/uploads/-/system/project/avatar/78/photo_2020-01-24_16-05-47.jpg",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon.git",
+    "namespace": "etalon",
+    "visibility_level": 0,
+    "path_with_namespace": "etalon/jetalon",
+    "default_branch": "master",
+    "homepage": "http://192.168.5.156.nip.io/etalon/jetalon",
+    "url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "http_url": "http://192.168.5.156.nip.io/etalon/jetalon.git"
+  },
+  "repository": {
+    "name": "jetalon",
+    "url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "description": "",
+    "homepage": "http://192.168.5.156.nip.io/etalon/jetalon",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon.git",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "visibility_level": 0
+  },
+  "commits": [
+    {
+      "id": "6486f173777bf35dbc528bd74d91a7e13b611325",
+      "message": "JET-1666\n",
+      "timestamp": "2020-10-08T14:18:11+07:00",
+      "url": "http://192.168.5.156.nip.io/etalon/jetalon/-/commit/6486f173777bf35dbc528bd74d91a7e13b611325",
+      "author": {
+        "name": "dhitsunov",
+        "email": "d.hitsunov.sis@gmail.com"
+      },
+      "title": "JET-1666",
+      "added": [
+        "jetalabor/src/main/resources/db/changelog/1.0/2020-10-08--01-update-indicator-set-description-type.xml"
+      ],
+      "modified": [
+        "features/monitoring/domain/src/main/java/pro/sisit/etalon/monitoring/domain/entity/IndicatorSet.java",
+        "jetalabor/src/main/resources/db/changelog/1.0/changelog.cumulative.xml"
+      ],
+      "removed": []
+    }
+  ],
+  "total_commits_count": 1
+}

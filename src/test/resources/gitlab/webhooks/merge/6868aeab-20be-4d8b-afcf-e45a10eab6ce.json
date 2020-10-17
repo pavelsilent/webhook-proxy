@@ -1,0 +1,93 @@
+{
+  "object_kind": "merge_request",
+  "object_kind": "merge_request",
+  "user": {
+    "name": "Павел Брычев",
+    "username": "p.brichev.sis",
+    "avatar_url": "https://www.gravatar.com/avatar/f6804a68f9eda6089d7eac0c7204a5aa?s=80&d=identicon",
+    "email": "p.brichev.sis@gmail.com"
+  },
+  "project": {
+    "id": 185,
+    "name": "measure_calculation",
+    "description": "",
+    "web_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation.git",
+    "namespace": "jetalon_libs",
+    "visibility_level": 0,
+    "path_with_namespace": "etalon/jetalon_libs/measure_calculation",
+    "default_branch": "master",
+    "homepage": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation",
+    "url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+    "ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+    "http_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation.git"
+  },
+  "repository": {
+    "name": "measure_calculation",
+    "url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+    "description": "",
+    "homepage": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation"
+  },
+  "object_attributes": {
+    "id": 21677,
+    "target_branch": "master",
+    "source_branch": "JET-1751",
+    "source_project_id": 185,
+    "author_id": 13,
+    "title": "JET-1751",
+    "created_at": "2020-09-18T11:16:46.564Z",
+    "updated_at": "2020-09-29T04:27:21.323Z",
+    "state": "merged",
+    "merge_status": "can_be_merged",
+    "target_project_id": 185,
+    "iid": 1,
+    "description": "",
+    "source": {
+      "id": 185,
+      "name": "measure_calculation",
+      "description": "",
+      "web_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation",
+      "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+      "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation.git",
+      "namespace": "jetalon_libs",
+      "visibility_level": 0,
+      "path_with_namespace": "etalon/jetalon_libs/measure_calculation",
+      "default_branch": "master",
+      "homepage": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation",
+      "url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+      "ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+      "http_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation.git"
+    },
+    "target": {
+      "id": 185,
+      "name": "measure_calculation",
+      "description": "",
+      "web_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation",
+      "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+      "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation.git",
+      "namespace": "jetalon_libs",
+      "visibility_level": 0,
+      "path_with_namespace": "etalon/jetalon_libs/measure_calculation",
+      "default_branch": "master",
+      "homepage": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation",
+      "url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+      "ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+      "http_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation.git"
+    },
+    "url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation/-/merge_requests/1",
+    "last_commit": {
+      "id": "595f3f2419a89f7ce3bea58a06eda9fb75ca0ad0",
+      "message": "JET-1751\n",
+      "timestamp": "2020-09-28T17:22:07+07:00",
+      "url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation/-/commit/595f3f2419a89f7ce3bea58a06eda9fb75ca0ad0",
+      "author": {
+        "name": "d.kerner",
+        "email": "denkern@gmail.com"
+      }
+    },
+    "work_in_progress": false
+  },
+  "labels": [],
+  "changes": {}
+}

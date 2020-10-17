@@ -1,0 +1,66 @@
+{
+  "object_kind": "push",
+  "object_kind": "push",
+  "before": "1d90fdcc64b4a0a0f811a615fa67589c47510600",
+  "after": "e7aa7db0aedd88f64f8c6e4270c36b733fef385c",
+  "ref": "refs/heads/JET-1805",
+  "checkout_sha": "e7aa7db0aedd88f64f8c6e4270c36b733fef385c",
+  "user_id": 67,
+  "user_name": "Виктория Хомякова",
+  "user_username": "v.homyakova.sis",
+  "user_email": "",
+  "user_avatar": "https://www.gravatar.com/avatar/7874853512c649160d07147ba4c90d4a?s=80&d=identicon",
+  "project_id": 78,
+  "project": {
+    "id": 78,
+    "name": "jetalon",
+    "description": "",
+    "web_url": "http://192.168.5.156.nip.io/etalon/jetalon",
+    "avatar_url": "http://192.168.5.156.nip.io/uploads/-/system/project/avatar/78/photo_2020-01-24_16-05-47.jpg",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon.git",
+    "namespace": "etalon",
+    "visibility_level": 0,
+    "path_with_namespace": "etalon/jetalon",
+    "default_branch": "master",
+    "homepage": "http://192.168.5.156.nip.io/etalon/jetalon",
+    "url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "http_url": "http://192.168.5.156.nip.io/etalon/jetalon.git"
+  },
+  "repository": {
+    "name": "jetalon",
+    "url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "description": "",
+    "homepage": "http://192.168.5.156.nip.io/etalon/jetalon",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon.git",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "visibility_level": 0
+  },
+  "commits": [
+    {
+      "id": "e7aa7db0aedd88f64f8c6e4270c36b733fef385c",
+      "message": "JET-1805\n",
+      "timestamp": "2020-10-08T13:54:40+07:00",
+      "url": "http://192.168.5.156.nip.io/etalon/jetalon/-/commit/e7aa7db0aedd88f64f8c6e4270c36b733fef385c",
+      "author": {
+        "name": "v.homyakova.sis",
+        "email": "v.homyakova.sis@gmail.com"
+      },
+      "title": "JET-1805",
+      "added": [],
+      "modified": [
+        "jetalabor/src/main/java/pro/sisit/etalon/jetalabor/system/application/cqs/UpdatingCheckerCommandDispatcherDecorator.java",
+        "jetalabor/src/main/java/pro/sisit/etalon/jetalabor/system/application/cqs/security/SafetyCommandDispatcherDecorator.java",
+        "jetalabor/src/main/java/pro/sisit/etalon/jetalabor/system/application/cqs/security/SecurityCommandDispatcherDecorator.java",
+        "jetalabor/src/main/java/pro/sisit/etalon/jetalabor/system/application/cqs/validation/ValidationCommandDispatcherDecorator.java",
+        "jetalibs/cqs/src/main/java/pro/sisit/etalon/jetalibs/cqs/services/command/CommandDispatcher.java",
+        "jetalibs/cqs/src/main/java/pro/sisit/etalon/jetalibs/cqs/services/command/CommandDispatcherDecorator.java",
+        "jetalibs/cqs/src/main/java/pro/sisit/etalon/jetalibs/cqs/services/command/CommandDispatcherImpl.java",
+        "jetalibs/cqs/src/main/java/pro/sisit/etalon/jetalibs/cqs/services/domainevent/DomainEventsExecutorDispatcherImpl.java"
+      ],
+      "removed": []
+    }
+  ],
+  "total_commits_count": 1
+}

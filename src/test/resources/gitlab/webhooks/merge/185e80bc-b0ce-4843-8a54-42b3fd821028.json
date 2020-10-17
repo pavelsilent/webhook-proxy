@@ -1,0 +1,102 @@
+{
+  "object_kind": "merge_request",
+  "object_kind": "merge_request",
+  "user": {
+    "name": "Виктория Хомякова",
+    "username": "v.homyakova.sis",
+    "avatar_url": "https://www.gravatar.com/avatar/7874853512c649160d07147ba4c90d4a?s=80&d=identicon",
+    "email": "v.homyakova.sis@gmail.com"
+  },
+  "project": {
+    "id": 78,
+    "name": "jetalon",
+    "description": "",
+    "web_url": "http://192.168.5.156.nip.io/etalon/jetalon",
+    "avatar_url": "http://192.168.5.156.nip.io/uploads/-/system/project/avatar/78/photo_2020-01-24_16-05-47.jpg",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon.git",
+    "namespace": "etalon",
+    "visibility_level": 0,
+    "path_with_namespace": "etalon/jetalon",
+    "default_branch": "master",
+    "homepage": "http://192.168.5.156.nip.io/etalon/jetalon",
+    "url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "http_url": "http://192.168.5.156.nip.io/etalon/jetalon.git"
+  },
+  "repository": {
+    "name": "jetalon",
+    "url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "description": "",
+    "homepage": "http://192.168.5.156.nip.io/etalon/jetalon"
+  },
+  "object_attributes": {
+    "id": 22073,
+    "target_branch": "master",
+    "source_branch": "JET-1805",
+    "source_project_id": 78,
+    "author_id": 67,
+    "title": "JET-1805",
+    "created_at": "2020-10-08 03:02:02 UTC",
+    "updated_at": "2020-10-08 06:54:46 UTC",
+    "state": "opened",
+    "merge_status": "unchecked",
+    "target_project_id": 78,
+    "iid": 1309,
+    "description": "Closes JET-1805",
+    "source": {
+      "id": 78,
+      "name": "jetalon",
+      "description": "",
+      "web_url": "http://192.168.5.156.nip.io/etalon/jetalon",
+      "avatar_url": "http://192.168.5.156.nip.io/uploads/-/system/project/avatar/78/photo_2020-01-24_16-05-47.jpg",
+      "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+      "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon.git",
+      "namespace": "etalon",
+      "visibility_level": 0,
+      "path_with_namespace": "etalon/jetalon",
+      "default_branch": "master",
+      "homepage": "http://192.168.5.156.nip.io/etalon/jetalon",
+      "url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+      "ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+      "http_url": "http://192.168.5.156.nip.io/etalon/jetalon.git"
+    },
+    "target": {
+      "id": 78,
+      "name": "jetalon",
+      "description": "",
+      "web_url": "http://192.168.5.156.nip.io/etalon/jetalon",
+      "avatar_url": "http://192.168.5.156.nip.io/uploads/-/system/project/avatar/78/photo_2020-01-24_16-05-47.jpg",
+      "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+      "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon.git",
+      "namespace": "etalon",
+      "visibility_level": 0,
+      "path_with_namespace": "etalon/jetalon",
+      "default_branch": "master",
+      "homepage": "http://192.168.5.156.nip.io/etalon/jetalon",
+      "url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+      "ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+      "http_url": "http://192.168.5.156.nip.io/etalon/jetalon.git"
+    },
+    "url": "http://192.168.5.156.nip.io/etalon/jetalon/-/merge_requests/1309",
+    "action": "update",
+    "last_commit": {
+      "id": "e7aa7db0aedd88f64f8c6e4270c36b733fef385c",
+      "message": "JET-1805\n",
+      "timestamp": "2020-10-08T13:54:40+07:00",
+      "url": "http://192.168.5.156.nip.io/etalon/jetalon/-/commit/e7aa7db0aedd88f64f8c6e4270c36b733fef385c",
+      "author": {
+        "name": "v.homyakova.sis",
+        "email": "v.homyakova.sis@gmail.com"
+      }
+    },
+    "work_in_progress": false
+  },
+  "labels": [],
+  "changes": {
+    "updated_at": {
+      "previous": "2020-10-08 03:39:25 UTC",
+      "current": "2020-10-08 06:54:46 UTC"
+    }
+  }
+}

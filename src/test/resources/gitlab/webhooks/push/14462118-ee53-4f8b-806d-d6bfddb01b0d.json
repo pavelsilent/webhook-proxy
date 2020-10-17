@@ -1,0 +1,88 @@
+{
+  "object_kind": "push",
+  "object_kind": "push",
+  "before": "0000000000000000000000000000000000000000",
+  "after": "4fec67611d2b1075b671f635adf15fb933943388",
+  "ref": "refs/heads/document_flow",
+  "checkout_sha": "4fec67611d2b1075b671f635adf15fb933943388",
+  "user_id": 20,
+  "user_name": "Павел Брычев",
+  "user_username": "p.brichev.sis",
+  "user_email": "",
+  "user_avatar": "https://www.gravatar.com/avatar/f6804a68f9eda6089d7eac0c7204a5aa?s=80&d=identicon",
+  "project_id": 78,
+  "project": {
+    "id": 78,
+    "name": "jetalon",
+    "description": "",
+    "web_url": "http://192.168.5.156.nip.io/etalon/jetalon",
+    "avatar_url": "http://192.168.5.156.nip.io/uploads/-/system/project/avatar/78/photo_2020-01-24_16-05-47.jpg",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon.git",
+    "namespace": "etalon",
+    "visibility_level": 0,
+    "path_with_namespace": "etalon/jetalon",
+    "default_branch": "master",
+    "homepage": "http://192.168.5.156.nip.io/etalon/jetalon",
+    "url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "http_url": "http://192.168.5.156.nip.io/etalon/jetalon.git"
+  },
+  "repository": {
+    "name": "jetalon",
+    "url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "description": "",
+    "homepage": "http://192.168.5.156.nip.io/etalon/jetalon",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon.git",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon.git",
+    "visibility_level": 0
+  },
+  "commits": [
+    {
+      "id": "4fec67611d2b1075b671f635adf15fb933943388",
+      "message": "JET-1840\n",
+      "timestamp": "2020-10-08T17:40:05+07:00",
+      "url": "http://192.168.5.156.nip.io/etalon/jetalon/-/commit/4fec67611d2b1075b671f635adf15fb933943388",
+      "author": {
+        "name": "p.brichev",
+        "email": "p.brichev@sis-it.pro"
+      },
+      "title": "JET-1840",
+      "added": [
+        "features/document/dataconfiguration/.gitignore",
+        "features/document/dataconfiguration/build.gradle",
+        "features/document/domain/.gitignore",
+        "features/document/domain/build.gradle",
+        "features/document/domain/src/main/java/pro/sisit/etalon/features/document/domain/entity/AgreementProcess.java",
+        "features/document/domain/src/main/java/pro/sisit/etalon/features/document/domain/entity/AgreementProcessMember.java",
+        "features/document/domain/src/main/java/pro/sisit/etalon/features/document/domain/entity/AgreementProcessMemberEntity.java",
+        "features/document/domain/src/main/java/pro/sisit/etalon/features/document/domain/entity/Document.java",
+        "features/document/domain/src/main/java/pro/sisit/etalon/features/document/domain/entity/DocumentKind.java",
+        "features/document/domain/src/main/java/pro/sisit/etalon/features/document/domain/entity/DocumentLink.java",
+        "features/document/domain/src/main/java/pro/sisit/etalon/features/document/domain/entity/DocumentPrivacyType.java",
+        "features/document/domain/src/main/java/pro/sisit/etalon/features/document/domain/entity/DocumentPublication.java",
+        "features/document/domain/src/main/java/pro/sisit/etalon/features/document/domain/entity/DocumentSendingMethod.java",
+        "features/document/domain/src/main/java/pro/sisit/etalon/features/document/domain/entity/ViewProcess.java",
+        "features/document/domain/src/main/java/pro/sisit/etalon/features/document/domain/entity/ViewProcessMember.java",
+        "features/document/domain/src/main/java/pro/sisit/etalon/features/document/domain/entity/extension/InputDocumentExtension.java",
+        "features/document/domain/src/main/java/pro/sisit/etalon/features/document/domain/entity/extension/InternalDocumentExtension.java",
+        "features/document/domain/src/main/java/pro/sisit/etalon/features/document/domain/entity/extension/OutputDocumentExtension.java",
+        "features/document/domain/src/main/java/pro/sisit/etalon/features/document/domain/entity/extension/OutputDocumentReceiver.java",
+        "features/document/domain/src/main/java/pro/sisit/etalon/features/document/domain/enumeration/AgreementDictionaries.java",
+        "features/document/domain/src/main/java/pro/sisit/etalon/features/document/domain/enumeration/AgreementProcessType.java",
+        "features/document/domain/src/main/java/pro/sisit/etalon/features/document/domain/enumeration/DocumentDictionaries.java",
+        "features/document/domain/src/main/java/pro/sisit/etalon/features/document/domain/enumeration/DocumentEntityType.java",
+        "features/document/domain/src/main/java/pro/sisit/etalon/features/document/domain/enumeration/DocumentOriginType.java",
+        "features/document/domain/src/main/java/pro/sisit/etalon/features/document/domain/enumeration/DocumentResourceName.java",
+        "features/document/domain/src/main/java/pro/sisit/etalon/features/document/domain/enumeration/DocumentType.java",
+        "features/document/domain/src/main/java/pro/sisit/etalon/features/document/domain/enumeration/DocumentWorkflowStatus.java",
+        "features/document/lombok.config"
+      ],
+      "modified": [
+        "settings.gradle"
+      ],
+      "removed": []
+    }
+  ],
+  "total_commits_count": 1
+}

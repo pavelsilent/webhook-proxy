@@ -1,0 +1,52 @@
+{
+  "object_kind": "build",
+  "object_kind": "build",
+  "ref": "JET-1398",
+  "tag": false,
+  "before_sha": "0000000000000000000000000000000000000000",
+  "sha": "0e3b3ea83beef796805b25b911e840727f73fd69",
+  "build_id": 83923,
+  "build_name": "test",
+  "build_stage": "test",
+  "build_status": "success",
+  "build_started_at": "2020-10-08 05:55:32 UTC",
+  "build_finished_at": "2020-10-08 05:56:48 UTC",
+  "build_duration": 76,
+  "build_allow_failure": false,
+  "build_failure_reason": "unknown_failure",
+  "pipeline_id": 72377,
+  "project_id": 185,
+  "project_name": "etalon / jetalon_libs / measure_calculation",
+  "user": {
+    "name": "Дмитрий Хицунов",
+    "username": "d.hitsunov.sis",
+    "avatar_url": "https://www.gravatar.com/avatar/99060b2b53e24c6d7af0435e4f02b4dd?s=80&d=identicon",
+    "email": "d.hitsunov.sis@gmail.com"
+  },
+  "commit": {
+    "id": 72377,
+    "sha": "0e3b3ea83beef796805b25b911e840727f73fd69",
+    "message": "JET-1398\n",
+    "author_name": "dhitsunov",
+    "author_email": "d.hitsunov.sis@gmail.com",
+    "status": "success",
+    "started_at": "2020-10-08 05:53:14 UTC",
+    "finished_at": "2020-10-08 05:56:48 UTC",
+    "duration": 212
+  },
+  "repository": {
+    "name": "measure_calculation",
+    "url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+    "description": "",
+    "homepage": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/measure_calculation.git",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/measure_calculation.git",
+    "visibility_level": 0
+  },
+  "runner": {
+    "active": true,
+    "is_shared": false,
+    "id": 25,
+    "description": "jetalon_libs_runner"
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "object_kind": "push",
+  "object_kind": "push",
+  "before": "8a5f1a8e257274d85d4f222e65d6868e3c959f4f",
+  "after": "8c0f614d06682b1abcc6d33a2543c70c820f02e4",
+  "ref": "refs/heads/master",
+  "checkout_sha": "8c0f614d06682b1abcc6d33a2543c70c820f02e4",
+  "user_id": 20,
+  "user_name": "Павел Брычев",
+  "user_username": "p.brichev.sis",
+  "user_email": "",
+  "user_avatar": "https://www.gravatar.com/avatar/f6804a68f9eda6089d7eac0c7204a5aa?s=80&d=identicon",
+  "project_id": 181,
+  "project": {
+    "id": 181,
+    "name": "data-types",
+    "description": "",
+    "web_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/data-types",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/data-types.git",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/data-types.git",
+    "namespace": "jetalon_libs",
+    "visibility_level": 0,
+    "path_with_namespace": "etalon/jetalon_libs/data-types",
+    "ci_config_path": "",
+    "default_branch": "master",
+    "homepage": "http://192.168.5.156.nip.io/etalon/jetalon_libs/data-types",
+    "url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/data-types.git",
+    "ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/data-types.git",
+    "http_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/data-types.git"
+  },
+  "repository": {
+    "name": "data-types",
+    "url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/data-types.git",
+    "description": "",
+    "homepage": "http://192.168.5.156.nip.io/etalon/jetalon_libs/data-types",
+    "git_http_url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/data-types.git",
+    "git_ssh_url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/data-types.git",
+    "visibility_level": 0
+  },
+  "commits": [
+    {
+      "id": "8c0f614d06682b1abcc6d33a2543c70c820f02e4",
+      "message": "Merge branch 'JET-1837' into 'master'\n\nJET-1837\n\nCloses JET-1837\n\nSee merge request etalon/jetalon_libs/data-types!15",
+      "timestamp": "2020-10-06T09:36:44+00:00",
+      "url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/data-types/-/commit/8c0f614d06682b1abcc6d33a2543c70c820f02e4",
+      "author": {
+        "name": "Павел Брычев",
+        "email": "p.brichev.sis@gmail.com"
+      },
+      "title": "Merge branch 'JET-1837' into 'master'",
+      "added": [],
+      "modified": [
+        "src/main/java/pro/sisit/etalon/jetalibs/datatypes/rest/dto/ResourceLinkDTO.java",
+        "src/main/java/pro/sisit/etalon/jetalibs/datatypes/rest/dto/ResourceLocationDTO.java"
+      ],
+      "removed": []
+    },
+    {
+      "id": "03689e3af7acd095693e46a34e8765135bf17f81",
+      "message": "JET-1837\n",
+      "timestamp": "2020-10-06T16:33:50+07:00",
+      "url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/data-types/-/commit/03689e3af7acd095693e46a34e8765135bf17f81",
+      "author": {
+        "name": "v.homyakova.sis",
+        "email": "v.homyakova.sis@gmail.com"
+      },
+      "title": "JET-1837",
+      "added": [],
+      "modified": [
+        "src/main/java/pro/sisit/etalon/jetalibs/datatypes/rest/dto/ResourceLinkDTO.java",
+        "src/main/java/pro/sisit/etalon/jetalibs/datatypes/rest/dto/ResourceLocationDTO.java"
+      ],
+      "removed": []
+    },
+    {
+      "id": "8a5f1a8e257274d85d4f222e65d6868e3c959f4f",
+      "message": "Merge branch 'JET-1810' into 'master'\n\nJET-1810\n\nCloses JET-1810\n\nSee merge request etalon/jetalon_libs/data-types!14",
+      "timestamp": "2020-10-06T07:02:54+00:00",
+      "url": "http://192.168.5.156.nip.io/etalon/jetalon_libs/data-types/-/commit/8a5f1a8e257274d85d4f222e65d6868e3c959f4f",
+      "author": {
+        "name": "Павел Брычев",
+        "email": "p.brichev.sis@gmail.com"
+      },
+      "title": "Merge branch 'JET-1810' into 'master'",
+      "added": [
+        "src/main/java/pro/sisit/etalon/jetalibs/datatypes/rest/dto/IconDTO.java",
+        "src/main/java/pro/sisit/etalon/jetalibs/datatypes/rest/dto/ResourceLinkDTO.java",
+        "src/main/java/pro/sisit/etalon/jetalibs/datatypes/rest/dto/ResourceLinkMenuDTO.java",
+        "src/main/java/pro/sisit/etalon/jetalibs/datatypes/rest/dto/ResourceLinkMenuItemDTO.java",
+        "src/main/java/pro/sisit/etalon/jetalibs/datatypes/rest/dto/ResourceLocationDTO.java"
+      ],
+      "modified": [],
+      "removed": []
+    }
+  ],
+  "total_commits_count": 3
+}

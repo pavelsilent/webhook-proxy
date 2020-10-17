@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5432/webhook-proxy}
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:12345678}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      ddl-auto: none
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+        show_sql: false
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/db.changelog-master.xml
+    drop-first: false
+    default-schema: public
+
+telegram:
+  api:
+    url: 'https://api.telegram.org/'
+  bot:
+    id: '1175490708:AAHTrfqu5fyn6o6tDUoiPu2MwFg4raHY2EY'
+    #'1104514641:AAHgsNR4J4A9P0CZIo_dNn-nZWAevDMhWo4'
+  channel:
+    id: '468654555'
+    #'-435910891'

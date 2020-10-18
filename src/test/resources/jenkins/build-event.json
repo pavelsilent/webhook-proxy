@@ -1,8 +1,0 @@
-{
-  "buildName": "#16",
-  "buildUrl": "http://my-jenkins-url.com/job/test%20job/16/",
-  "event": "success",
-  "projectName": "test job",
-  "buildVars": "..."
-}
-

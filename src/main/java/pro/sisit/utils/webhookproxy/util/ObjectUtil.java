@@ -1,10 +1,9 @@
 package pro.sisit.utils.webhookproxy.util;
 
-import lombok.SneakyThrows;
-import org.springframework.data.util.ReflectionUtils;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import lombok.SneakyThrows;
+import org.springframework.data.util.ReflectionUtils;
 
 public class ObjectUtil {
 
@@ -27,7 +26,18 @@ public class ObjectUtil {
             }
         }
 
-
         return value;
+    }
+
+    public static String getFieldName(Field field) {
+        return field.getName();
+    }
+
+    public static String getFieldValue(Object object, Field field) {
+        try {
+            return String.valueOf(field.get(object));
+        } catch (IllegalAccessException e) {
+            return "";
+        }
     }
 }

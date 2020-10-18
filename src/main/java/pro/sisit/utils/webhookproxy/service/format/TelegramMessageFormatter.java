@@ -8,6 +8,10 @@ public interface TelegramMessageFormatter {
 
     String underline(String text);
 
+    default String boldUnderline(String text) {
+        return bold(underline(text));
+    }
+
     String italic(String text);
 
     String strike(String text);

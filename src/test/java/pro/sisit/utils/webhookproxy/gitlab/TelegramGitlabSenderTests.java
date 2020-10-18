@@ -2,6 +2,10 @@ package pro.sisit.utils.webhookproxy.gitlab;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pengrad.telegrambot.response.SendResponse;
+import java.io.File;
+import java.io.IOException;
+import java.util.Objects;
+import java.util.stream.Stream;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -19,19 +23,13 @@ import pro.sisit.utils.webhookproxy.domain.entity.target.TelegramChannel;
 import pro.sisit.utils.webhookproxy.domain.model.telegram.Message;
 import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.GitLabDTO;
 import pro.sisit.utils.webhookproxy.rest.dto.gitlab.hook.GitLabPushDTO;
-import pro.sisit.utils.webhookproxy.rest.dto.jenkins.JenkinsBuildEventDTO;
 import pro.sisit.utils.webhookproxy.service.builder.TelegramMessageBuilderFactory;
 import pro.sisit.utils.webhookproxy.service.sender.TelegramSender;
 import pro.sisit.utils.webhookproxy.service.transform.GitlabRestConverter;
 import pro.sisit.utils.webhookproxy.service.transform.RestConverterFactory;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Objects;
-import java.util.stream.Stream;
-
 @SpringBootTest(classes = WebHookProxyTestApplication.class)
-class TelegramSenderTests {
+class TelegramGitlabSenderTests {
 
     @Autowired
     private GitlabRestConverter restConverter;
@@ -61,9 +59,9 @@ class TelegramSenderTests {
     }
 
     @ParameterizedTest
-    @ArgumentsSource(TelegramSenderTests.TelegramSendMessageTestArguments.class)
+    @ArgumentsSource(TelegramGitlabSenderTests.TelegramSendMessageTestArguments.class)
     void testSendMessage(String jsonFileName, Class dtoClass)
-            throws IOException {
+        throws IOException {
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(Objects.requireNonNull(classLoader.getResource(jsonFileName)).getFile());
 
@@ -82,13 +80,12 @@ class TelegramSenderTests {
         @Override
         public Stream<? extends Arguments> provideArguments(ExtensionContext context) {
             return Stream.of(
-                    new Object[]{"gitlab/merge-request-event.json", GitLabDTO.class},
-                    new Object[]{"gitlab/merge-request-comment-event.json", GitLabDTO.class},
-                    new Object[]{"gitlab/commit-comment-event.json", GitLabDTO.class},
-                    new Object[]{"gitlab/pipeline-event.json", GitLabDTO.class},
-                    new Object[]{"gitlab/push-event.json", GitLabPushDTO.class},
-                    new Object[]{"jenkins/build-event.json", JenkinsBuildEventDTO.class})
-                    .map(Arguments::of);
+                new Object[]{"gitlab/merge-request-event.json", GitLabDTO.class},
+                new Object[]{"gitlab/merge-request-comment-event.json", GitLabDTO.class},
+                new Object[]{"gitlab/commit-comment-event.json", GitLabDTO.class},
+                new Object[]{"gitlab/pipeline-event.json", GitLabDTO.class},
+                new Object[]{"gitlab/push-event.json", GitLabPushDTO.class})
+                         .map(Arguments::of);
         }
     }
 

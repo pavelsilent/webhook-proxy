@@ -1,0 +1,39 @@
+{
+  "name": "data-types",
+  "display_name": "data-types",
+  "url": "job/data-types/",
+  "build": {
+    "full_url": "http://192.168.5.24:8080/job/data-types/61/,",
+    "number": 61,
+    "queue_id": 7526,
+    "timestamp": 1602952855630,
+    "phase": "FINALIZED",
+    "status": "FAILURE",
+    "url": "job/data-types/61/",
+    "scm": {
+      "url": "git@192.168.5.156.nip.io:etalon/jetalon_libs/data-types.git",
+      "branch": "origin/master",
+      "commit": "6bbba0594ef3a6ca0718faac675e3d4404b0c4f6",
+      "changes": [
+        "src/main/java/pro/sisit/etalon/jetalibs/datatypes/utils/NumberUtils.java"
+      ],
+      "culprits": [
+        "p.brichev"
+      ]
+    },
+    "parameters": {
+      "BuildUniqueToken": "runbuild"
+    },
+    "artifacts": {
+      "build/libs/data-types-1.3.61.RELEASE.jar": {
+        "archive": "http://192.168.5.24:8080/job/data-types/61/artifact/build/libs/data-types-1.3.61.RELEASE.jar"
+      },
+      "build/libs/data-types-test-1.3.61.RELEASE.jar": {
+        "archive": "http://192.168.5.24:8080/job/data-types/61/artifact/build/libs/data-types-test-1.3.61.RELEASE.jar"
+      },
+      "build/libs/data-types-1.3.61.RELEASE-sources.jar": {
+        "archive": "http://192.168.5.24:8080/job/data-types/61/artifact/build/libs/data-types-1.3.61.RELEASE-sources.jar"
+      }
+    }
+  }
+}

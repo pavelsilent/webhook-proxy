@@ -25,7 +25,7 @@ import pro.sisit.utils.webhookproxy.domain.enumeration.SystemFilterEnum;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.MergeRequestModel;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.data.ProjectModel;
 import pro.sisit.utils.webhookproxy.domain.model.gitlab.event.*;
-import pro.sisit.utils.webhookproxy.domain.model.jenkins.BuildEvent;
+import pro.sisit.utils.webhookproxy.domain.model.jenkins.JenkinsEvent;
 
 import javax.transaction.Transactional;
 import java.util.Arrays;
@@ -138,7 +138,7 @@ public class ProxyRuleQueryServiceTest {
                     new Object[]{new PushEvent(), 2},
                     new Object[]{new MergeRequestEvent(), 2},
                     new Object[]{new PipelineEvent(), 1},
-                    new Object[]{new BuildEvent(), 0},
+                    new Object[]{new JenkinsEvent(), 0},
                     new Object[]{MergeRequestCommentEvent.builder()
                             .mergeRequest(MergeRequestModel.builder()
                                     .source(ProjectModel.builder().name("etalon/data-types").build()).build()).build(), 1},

@@ -14,4 +14,5 @@ public interface JenkinsRestConverter {
     JobModel toModel(JenkinsBuildDTO dto);
 
     CommitModel toModel(JenkinsSCMDTO dto);
+
 }

@@ -14,6 +14,7 @@ import pro.sisit.utils.webhookproxy.domain.model.jenkins.enumeration.JobStatus;
 import pro.sisit.utils.webhookproxy.rest.dto.jenkins.JenkinsEventDTO;
 import pro.sisit.utils.webhookproxy.rest.dto.jenkins.data.JenkinsBuildDTO;
 import pro.sisit.utils.webhookproxy.rest.dto.jenkins.data.JenkinsSCMDTO;
+import pro.sisit.utils.webhookproxy.util.StringUtil;
 
 @Service
 public class JenkinsRestConverterImpl implements JenkinsRestConverter {
@@ -26,6 +27,7 @@ public class JenkinsRestConverterImpl implements JenkinsRestConverter {
 
         ProjectModel projectModel = new ProjectModel();
         projectModel.setName(dto.name);
+        projectModel.setFullName(parseProjectFullName(dto));
         projectModel.setUrl(parseProjectUrl(dto));
 
         JenkinsEvent model = new JenkinsEvent();
@@ -36,15 +38,26 @@ public class JenkinsRestConverterImpl implements JenkinsRestConverter {
             toModel(Optional.ofNullable(dto.build)
                             .map(buildDTO -> buildDTO.scm)
                             .orElse(null)));
+
         return model;
     }
 
-
-    private String parseProjectFullName(JenkinsEventDTO dto) {
-        return dto.build.scm.url;
+    public String parseProjectFullName(JenkinsEventDTO dto) {
+        // git@192.168.5.156.nip.io:etalon/jetalon_libs/data-types.git
+        return Optional.ofNullable(dto)
+                       .map(event -> event.build)
+                       .map(build -> build.scm)
+                       .map(scm -> scm.url)
+                       .map(repoUrl -> repoUrl.split(":"))
+                       .filter(strings -> strings.length == 2)
+                       .map(strings -> strings[1])
+                       .map(urlPart -> urlPart.split("\\.git"))
+                       .filter(strings -> strings.length >= 1)
+                       .map(strings -> strings[0])
+                       .orElse(null);
     }
 
-    private String parseProjectUrl(JenkinsEventDTO dto) {
+    public String parseProjectUrl(JenkinsEventDTO dto) {
         if (dto == null || dto.name == null) {
             return null;
         }
@@ -84,7 +97,8 @@ public class JenkinsRestConverterImpl implements JenkinsRestConverter {
         }
 
         CommitModel model = new CommitModel();
-        model.setUrl(dto.url);
+        model.setSshRepoUrl(dto.url);
+        model.setHttpRepoUrl(StringUtil.buildGitURL(dto.url, false));
         model.setBranch(dto.branch);
         model.setCommit(dto.commit);
         model.setChanges(dto.changes);
@@ -95,15 +109,18 @@ public class JenkinsRestConverterImpl implements JenkinsRestConverter {
     public Map<String, String> parseParams(Object params) {
         try {
             String preParse = params.toString().substring(1, params.toString().length() - 1);
+
             Map<String, String> parameters = new HashMap<>();
             Arrays.stream(preParse.split(", "))
-                  .map(s -> s.split("="))
+//                  .peek(s -> System.out.println(s))
+                  .map(s -> s.replaceFirst("=", "~"))
+                  .map(s -> s.split("~"))
                   .filter(strings -> strings.length == 2)
                   .forEach(strings -> parameters.put(
                       strings[0],
                       strings[1]));
 
-            // parameters.forEach((s, s2) -> System.out.println(s + " => " + s2));
+//            parameters.forEach((s, s2) -> System.out.println(s + " => " + s2));
             return parameters;
         } catch (RuntimeException ex) {
             return new HashMap<>();

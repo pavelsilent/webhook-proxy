@@ -6,7 +6,9 @@ import lombok.Data;
 @Data
 public class CommitModel {
 
-    private String url;
+    private String sshRepoUrl;
+
+    private String httpRepoUrl;
 
     private String branch;
 

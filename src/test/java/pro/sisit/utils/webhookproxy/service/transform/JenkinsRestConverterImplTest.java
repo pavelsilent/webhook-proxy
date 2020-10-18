@@ -6,35 +6,58 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.Objects;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pro.sisit.utils.webhookproxy.domain.model.jenkins.JenkinsEvent;
+import pro.sisit.utils.webhookproxy.domain.model.jenkins.data.CommitModel;
 import pro.sisit.utils.webhookproxy.rest.dto.jenkins.JenkinsEventDTO;
 
 public class JenkinsRestConverterImplTest {
 
-    @Test
-    public void testConvertToEvent() throws IOException {
+    private JenkinsEventDTO dto;
+
+    private JenkinsRestConverterImpl restConverter;
+
+    @BeforeEach
+    public void before() throws IOException {
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(Objects.requireNonNull(
             classLoader.getResource("jenkins/notification-plugin-build-event.json")).getFile());
 
         ObjectMapper mapper = new ObjectMapper();
-        JenkinsEventDTO dto = mapper.readValue(file, JenkinsEventDTO.class);
+        dto = mapper.readValue(file, JenkinsEventDTO.class);
         Assertions.assertEquals(JenkinsEventDTO.class, dto.getClass());
 
-        JenkinsRestConverterImpl restConverter = new JenkinsRestConverterImpl();
+        restConverter = new JenkinsRestConverterImpl();
+    }
+
+    @Test
+    void testConvertToEventModel() throws IOException {
         JenkinsEvent model = restConverter.toModel(dto);
-
+        Assertions.assertNotNull(model);
         Assertions.assertEquals(JenkinsEvent.class, model.getClass());
-        Assertions.assertEquals("http://192.168.5.24:8080/job/data-types/",
-            model.getProject().getUrl());
+    }
 
-        Map<String, String> parameters = model.getJob().getParameters();
-        Assertions.assertEquals(1, parameters.size());
+    @Test
+    void testConvertToCommitModel() {
+        CommitModel model = restConverter.toModel(dto.build.scm);
+        Assertions.assertNotNull(model);
+        Assertions.assertEquals(CommitModel.class, model.getClass());
+        Assertions.assertEquals("git@192.168.5.156.nip.io:etalon/jetalon_libs/data-types.git",
+            model.getSshRepoUrl());
+    }
+
+    @Test
+    void parseParams() {
+        Map<String, String> parameters = restConverter.parseParams(dto.build.parameters);
+        Assertions.assertEquals(4, parameters.size());
         Assertions.assertTrue(parameters.containsKey("BuildUniqueToken"));
         Assertions.assertEquals("runbuild", parameters.get("BuildUniqueToken"));
+    }
 
-        Map<String, String> artifacts = model.getJob().getArtifacts();
+    @Test
+    void parseArtifacts() {
+        Map<String, String> artifacts = restConverter.parseArtifacts(dto.build.artifacts);
         Assertions.assertEquals(3, artifacts.size());
 
         String jar1 = "build/libs/data-types-1.3.61.RELEASE.jar";
@@ -54,5 +77,17 @@ public class JenkinsRestConverterImplTest {
         Assertions.assertEquals(
             "http://192.168.5.24:8080/job/data-types/61/artifact/build/libs/data-types-1.3.61.RELEASE-sources.jar",
             artifacts.get(jar3));
+    }
+
+    @Test
+    void parseProjectUrl() {
+        Assertions.assertEquals("http://192.168.5.24:8080/job/data-types/",
+            restConverter.parseProjectUrl(dto));
+    }
+
+    @Test
+    void parseProjectFullName() {
+        Assertions.assertEquals("etalon/jetalon_libs/data-types",
+            restConverter.parseProjectFullName(dto));
     }
 }

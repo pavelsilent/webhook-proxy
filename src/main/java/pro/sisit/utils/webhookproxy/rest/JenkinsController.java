@@ -20,7 +20,7 @@ public class JenkinsController {
     @PostMapping(value = "jenkins/receive", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void receive(@RequestBody JenkinsEventDTO dto) {
         System.out.println("JenkinsController: receive");
-        System.out.println(dto.getClass());
+        System.out.println(dto.build.parameters);
 
         ReceiveEventCommand command = new ReceiveEventCommand();
         command.setWebhookEvent(restConverter.toModel(dto));

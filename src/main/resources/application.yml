@@ -1,6 +1,6 @@
 server:
   port: 8777
-  
+
 spring:
   datasource:
     url: ${POSTGRES_URL:jdbc:postgresql://localhost:5432/webhook-proxy}
@@ -19,6 +19,13 @@ spring:
     change-log: classpath:/db/changelog/db.changelog-master.xml
     drop-first: false
     default-schema: public
+
+jenkins:
+  url: 'http://192.168.5.24:8080/'
+
+
+sonarqube:
+  url: 'http://192.168.5.12:9000/'
 
 telegram:
   api:
